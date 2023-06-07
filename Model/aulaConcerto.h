@@ -5,6 +5,7 @@
 
 class aulaConcerto : public aula {
 private:
+    string nome_aula;
     string strumento;
     int capienza;
     bool amplificazione; //0=false, 1=true

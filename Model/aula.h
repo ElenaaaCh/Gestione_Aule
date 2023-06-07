@@ -6,13 +6,13 @@ using std::string;
 
 class aula {
 private:
-    string piano;
+    int piano;
     int numero;
     string sede;
     int max_persone;
 
 public:
-    aula(string _piano="", int numero=0, string _sede="", int _max_persone=0);
+    aula(int _piano=0, int numero=0, string _sede="", int _max_persone=0);
     virtual ~aula() = default;
     virtual aula* clone() const = 0;
 
