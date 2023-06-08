@@ -153,7 +153,7 @@ void storage::removePrenotazione(prenotazione* pr) {
     }
 }
 
-prenotazione* storage::searchPrenotazione(const Date& data, const aula* aulaRiferimento) {
+prenotazione* storage::searchPrenotazione(const QDate& data, const aula* aulaRiferimento) {
     NodoPr* nodoCorr = first_P;
 
     while (nodoCorr != nullptr) {

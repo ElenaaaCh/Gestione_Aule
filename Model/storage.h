@@ -29,7 +29,7 @@ public:
     void addPrenotazione(prenotazione* pr);
     void viewPrenotazioni();
     void removePrenotazione(prenotazione* pr);
-    aula* searchPrenotazione(const Date& data, const aula* aulaRiferimento);
+    prenotazione* searchPrenotazione(const QDate& data, const aula* aulaRiferimento);
 };
 
 #endif // STORAGE_H

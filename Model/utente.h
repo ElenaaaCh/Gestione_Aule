@@ -2,8 +2,6 @@
 #define UTENTE_H
 
 #include <string>
-#include <Model/prenotazione.h>
-#include <Model/contenitore.h>
 
 using std::string;
 
@@ -17,7 +15,6 @@ private:
     string telefono;
     string email;
     tipoutente persona;
-    contenitore<prenotazione> prenotazioni;
 
 public:
     utente(string _nome="", string _cognome="", string _codiceFiscale="", string _telefono="", string _email="", tipoutente _tipo=Studente);
@@ -35,12 +32,6 @@ public:
     void setTelefono(const string &value);
     string getEmail() const;
     void setEmail(const string &value);
-
-    contenitore<prenotazione> getPrenotazione() const;
-    void setPrenotazioni(const contenitore<prenotazione> &_listaPrenotazioni);
-    void addPrenotazione(const prenotazione &_pr);
-    void removePrenotazione(const prenotazione &_pr);
-
 };
 
 

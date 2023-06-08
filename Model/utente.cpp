@@ -20,18 +20,3 @@ string utente::getEmail() const { return email; }
 void utente::setEmail(const string &value){
     email=value;
 }
-
-//funzionalità
-contenitore<prenotazione> utente::getPrenotazione() const {
-    return prenotazioni;
-}
-void utente::setPrenotazioni(const contenitore<prenotazione> &_listaPrenotazioni){
-    prenotazioni.clear();
-    prenotazioni = _listaPrenotazioni;
-}
-void utente::addPrenotazione(const prenotazione &_pr){
-    prenotazioni.push(_pr);
-}
-void utente::removePrenotazione(const prenotazione &_pr){
-    prenotazioni.remove(_pr);
-}
