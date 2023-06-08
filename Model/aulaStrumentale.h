@@ -8,16 +8,13 @@ private:
     string strumento;
 
 public:
-    aulaStrumentale(string _piano="", int _numero=0, string _sede="", int _max_persone=0, const string& _strumento="");
+    aulaStrumentale(int _piano=0, int _numero=0, string _sede="", int _max_persone=0, const string& _strumento="");
+    ~aulaStrumentale() = default;
+    virtual aulaStrumentale* clone() const override;
+
     const string& getStrumento() const;
 
-    void aggiungi() override;
-    void modifica() override;
-    void elimina() override;
-
-    //void visualizzaPrenotazioni() const override;
-    //bool prenota(const std::string& email, const std::string& orarioArrivo, const std::string& orarioUscita);
-
+    void setStrumento(const string &value);
 };
 
 #endif
