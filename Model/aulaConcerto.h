@@ -11,17 +11,21 @@ private:
     bool amplificazione; //0=false, 1=true
 
 public:
-    aulaConcerto(string _piano="", int _numero=0, string _sede="", int _max_persone=0, const string& _strumento="", int _capienza=0, bool _amplificazione=0 );
+    aulaConcerto(int _piano=0, int _numero=0, string _sede="", int _max_persone=0, const string& _nome_aula="", const string& _strumento="", int _capienza=0, bool _amplificazione=0 );
     ~aulaConcerto() = default;
     virtual aulaConcerto* clone() const override;
 
+    //metodi get
+    const string& getNome() const;
     const string& getStrumento() const;
     int getCapienza() const;
     bool getAmplificazione() const;
 
-    void aggiungi() override;
-    void modifica() override;
-    void elimina() override;
+    //metodi set
+    void setNome(const string &value);
+    void setStrumento(const string &value);
+    void setCapienza(const int value);
+    void setAmplificazione(bool value);
 };
 
 #endif
