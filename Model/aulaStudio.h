@@ -9,16 +9,15 @@ private:
     int prese_corrente;
 
 public:
-    aulaStudio(string _piano="", int _numero=0, string _sede="", int _max_persone=0, int _leggii=0, int _prese_corrente=0);
+    aulaStudio(int _piano=0, int _numero=0, string _sede="", int _max_persone=0, int _leggii=0, int _prese_corrente=0);
+    ~aulaStudio() = default;
+    virtual aulaStudio* clone() const override;
+
     int getLeggii() const;
     int getPreseCorrente() const;
 
-    void aggiungi() override;
-    void modifica() override;
-    void elimina() override;
-
-    //void visualizzaPrenotazioni() const override;
-    //bool prenota(const string& email, const string& orarioArrivo, const string& orarioUscita);
+    void setLeggii(const int value);
+    void setPrese(const int value);
 };
 
 #endif
