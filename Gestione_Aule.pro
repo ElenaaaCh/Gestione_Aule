@@ -14,6 +14,7 @@ SOURCES += \
     Model/aulaStrumentale.cpp \
     Model/aulaStudio.cpp \
     Model/prenotazione.cpp \
+    Model/storage.cpp \
     Model/utente.cpp \
     View/prova.cpp \
     main.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     Model/aulaStrumentale.h \
     Model/aulaStudio.h \
     Model/prenotazione.h \
+    Model/storage.h \
     Model/utente.h \
     mainwindow.h
 
