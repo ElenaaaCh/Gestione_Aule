@@ -27,12 +27,14 @@ public:
     int getOraArrivo() const;
     int getOraUscita() const;
     string getCausale() const;
+    aula* getAula() const;
 
     void setEmail(const string &value);
     //data
     void setOraArrivo(int value);
     void setOraUscita(int value);
     void setCausale(const string &value);
+    void setAula(const aula* value);
 };
 
 #endif // PRENOTAZIONE_H

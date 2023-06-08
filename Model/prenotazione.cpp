@@ -18,18 +18,12 @@ string prenotazione::getEmail() const { return email; };
 int prenotazione::getOraArrivo() const { return oraArrivo; };
 int prenotazione::getOraUscita() const { return oraUscita; };
 string prenotazione::getCausale() const { return causale; };
+aula* prenotazione::getAula() const { return aula_pr; }
 
 //impl metodi set
-void prenotazione::setEmail(const string &value){
-    email=value;
-}
+void prenotazione::setEmail(const string &value){ email=value; }
     //data
-void prenotazione::setOraArrivo(int value){
-    oraArrivo=value;
-}
-void prenotazione::setOraUscita(int value){
-    oraUscita=value;
-}
-void prenotazione::setCausale(const string &value){
-    causale=value;
-}
+void prenotazione::setOraArrivo(int value){ oraArrivo=value; }
+void prenotazione::setOraUscita(int value){ oraUscita=value; }
+void prenotazione::setCausale(const string &value){ causale=value; }
+void prenotazione::setAula(const aula* value){ aula_pr=value; }
