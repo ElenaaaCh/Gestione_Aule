@@ -167,4 +167,8 @@ prenotazione* storage::searchPrenotazione(const QDate& data, const aula* aulaRif
     return nullptr;  // La prenotazione non è stata trovata
 }
 
+void storage::addUtente(utente* ut){
+    pers.push_back(ut);
+}
+
 

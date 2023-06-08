@@ -9,8 +9,6 @@ private:
 
 public:
     aulaStrumentale(int _piano=0, int _numero=0, string _sede="", int _max_persone=0, const string& _strumento="");
-    ~aulaStrumentale() = default;
-    virtual aulaStrumentale* clone() const override;
 
     const string& getStrumento() const;
 

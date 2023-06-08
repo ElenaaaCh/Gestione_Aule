@@ -13,7 +13,7 @@ private:
 
 public:
     aula(int _piano=0, int numero=0, string _sede="", int _max_persone=0);
-    virtual ~aula() = default;
+    virtual ~aula();
     virtual aula* clone() const = 0;
 
     //metodi get

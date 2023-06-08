@@ -12,8 +12,6 @@ private:
 
 public:
     aulaConcerto(int _piano=0, int _numero=0, string _sede="", int _max_persone=0, const string& _nome_aula="", const string& _strumento="", int _capienza=0, bool _amplificazione=0 );
-    ~aulaConcerto() = default;
-    virtual aulaConcerto* clone() const override;
 
     //metodi get
     const string& getNome() const;

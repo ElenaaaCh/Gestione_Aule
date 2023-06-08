@@ -7,6 +7,8 @@
 aula::aula(int _piano, int _numero, string _sede, int _max_persone)
     : piano(_piano), numero(_numero), sede(_sede), max_persone(_max_persone) {}
 
+aula::~aula(){}
+
 // Implementazione dei metodi get
 int aula::getPiano() const { return piano; }
 int aula::getNumero() const { return numero; }

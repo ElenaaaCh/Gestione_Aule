@@ -3,7 +3,6 @@
 prenotazione::prenotazione(utente* _persona, int _oraArrivo, int _oraUscita, string _causale, aula* _aula_pr)
     : persona(_persona), oraArrivo(_oraArrivo), oraUscita(_oraUscita), causale(_causale), aula_pr(_aula_pr){};
 
-
 bool prenotazione::operator==(const prenotazione &_pr) const{
     return (_pr.persona==persona && _pr.oraArrivo==oraArrivo && _pr.oraUscita==oraUscita && _pr.causale==causale);
 }

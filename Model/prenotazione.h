@@ -19,7 +19,7 @@ private:
 
 public:
     prenotazione(utente* _persona=nullptr, int _oraArrivo=0, int _oraUscita=0, string _causale="", aula* _aula_pr=nullptr);
-    ~prenotazione() = default;
+    virtual ~prenotazione()=default;
     bool operator==(const prenotazione&)const;
     bool operator!=(const prenotazione&)const;
     
