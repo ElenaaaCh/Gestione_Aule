@@ -2,6 +2,34 @@
 
 storage::storage(NodoA* a, NodoPr* pr, vector<utente*> v): first_A(a), first_P(pr), pers(v){}
 
+storage::~storage() {
+    // Deallocazione aule
+    NodoA* nA = first_A;
+    while (nA != nullptr) {
+        NodoA* nextA = nA->succ;
+        delete nA->aula;
+        delete nA;
+        nA = nextA;
+    }
+
+    // Deallocazione prenotazioni
+    NodoPr* nP = first_P;
+    while (nP != nullptr) {
+        NodoPr* nextP = nP->succ;
+        delete nP->pren;
+        delete nP;
+        nP = nextP;
+    }
+
+    // Deallocazione degli utenti
+    for (utente* u : pers) {
+        delete u;
+    }
+
+    pers.clear();
+}
+
+
 void storage::addAula(aula* a) {
     NodoA* nuovoNodo = new NodoA;
     nuovoNodo->aula = a;
