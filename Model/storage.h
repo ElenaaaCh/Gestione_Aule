@@ -1,6 +1,7 @@
 #ifndef STORAGE_H
 #define STORAGE_H
 
+#include<iostream>
 #include<vector>
 #include "aula.h"
 #include "prenotazione.h"
@@ -39,7 +40,7 @@ public:
 
     void addUtente(utente* ut);
     void removeUtente(const string& nome, const string& cognome);
-
+    void modifyUtente(const string& nome, const string& cognome, const string& nuovoTelefono, const string& nuovaEmail);
 };
 
 

@@ -210,3 +210,15 @@ void storage::removeUtente(const string& nome, const string& cognome) {
         }
     }
 }
+
+void storage::modifyUtente(const string& nome, const string& cognome, const string& nuovoTelefono, const string& nuovaEmail) {
+    for (auto& ut : pers) {
+        if (ut->getNome() == nome && ut->getCognome() == cognome) {
+            ut->setTelefono(nuovoTelefono);
+            ut->setEmail(nuovaEmail);
+            // Modifica altre informazioni specifiche dell'utente se necessario
+            return;
+        }
+    }
+    std::cout << "Utente non trovato." << std::endl;
+}
