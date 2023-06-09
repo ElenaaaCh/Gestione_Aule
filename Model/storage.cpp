@@ -1,5 +1,7 @@
 #include "storage.h"
 
+storage::storage(NodoA* a, NodoPr* pr, vector<utente*> v): first_A(a), first_P(pr), pers(v){}
+
 void storage::addAula(aula* a) {
     NodoA* nuovoNodo = new NodoA;
     nuovoNodo->aula = a;

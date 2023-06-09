@@ -5,6 +5,7 @@
 #include "aula.h"
 #include "prenotazione.h"
 #include "utente.h"
+using std::vector;
 
 struct NodoA {
     aula* aula;
@@ -22,9 +23,9 @@ class storage{
 private:
     NodoA* first_A;
     NodoPr* first_P;
-    std::vector<utente*>pers;
+    vector<utente*>pers;
 public:
-    storage();//costr
+    storage(NodoA*, NodoPr*, vector<utente*> );//costr
     ~storage();//distr
     void addAula(aula* a);
     void viewAule();
