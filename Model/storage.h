@@ -38,6 +38,7 @@ public:
     prenotazione* searchPrenotazione(const QDate& data, const aula* aulaRiferimento);
 
     void addUtente(utente* ut);
+    void removeUtente(const string& nome, const string& cognome);
 
 };
 

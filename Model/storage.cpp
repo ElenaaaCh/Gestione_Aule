@@ -201,4 +201,12 @@ void storage::addUtente(utente* ut){
     pers.push_back(ut);
 }
 
-
+void storage::removeUtente(const string& nome, const string& cognome) {
+    for (auto it = pers.begin(); it != pers.end(); ++it) {
+        if ((*it)->getNome() == nome && (*it)->getCognome() == cognome) {
+            delete *it;
+            pers.erase(it);
+            return;
+        }
+    }
+}
