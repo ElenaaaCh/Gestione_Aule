@@ -22,7 +22,6 @@ SOURCES += \
     View/prova.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp \
     registrazione.cpp
 
 HEADERS += \
@@ -35,7 +34,6 @@ HEADERS += \
     Model/storage.h \
     Model/utente.h \
     login.h \
-    mainwindow.h \
     registrazione.h
 
 # Default rules for deployment.
