@@ -72,8 +72,6 @@ public:
     iteratore end();
     iteratore_const begin()const;
     iteratore_const end()const;
-
-
 };
 
 #endif // CONTAINER_H

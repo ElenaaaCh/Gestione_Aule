@@ -1,4 +1,6 @@
 #include "storage.h"
+#include "aula.h"
+#include "prenotazione.h"
 
 contenitore<aula> auleContainer;
 contenitore<prenotazione> prenotazioniContainer;
