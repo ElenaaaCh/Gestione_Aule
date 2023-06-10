@@ -1,5 +1,7 @@
-#ifndef CONTAINER_H
-#define CONTAINER_H
+#ifndef CONTENITORE_H
+#define CONTENITORE_H
+
+#include<algorithm>
 
 template <class T>
 class contenitore{
@@ -67,6 +69,7 @@ public:
     void remove(int _pos);
     void remove(const T& t);
     void replace(int _pos, const T&);
+    void insertSorted(const T& item, std::function<bool(const T&, const T&)> compare);
 
     iteratore begin();
     iteratore end();
@@ -74,4 +77,4 @@ public:
     iteratore_const end()const;
 };
 
-#endif // CONTAINER_H
+#endif // CONTENITORE_H

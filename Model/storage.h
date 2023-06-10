@@ -4,7 +4,7 @@
 #include<iostream>
 #include<vector>
 
-#include "container.h"
+#include "contenitore.h"
 #include "aula.h"
 #include "prenotazione.h"
 #include "utente.h"
@@ -13,13 +13,13 @@ using std::vector;
 
 class storage{
 private:
-    NodoA* first_A;
-    NodoPr* first_P;
-    vector<utente*>pers;
+    contenitore<aula*> aule;
+    contenitore<prenotazione*> prenotazioni;
+    vector<utente*> pers;
 public:
-    storage(NodoA*, NodoPr*, vector<utente*> );//costr
+    storage(contenitore<aula*>& , contenitore<prenotazione*>& , vector<utente*>& );//costr
     ~storage();//distr
-    void addAula(aula* a);
+    void addAula(aula* aula);
     void viewAule();
     void removeAula(aula* aula);
     aula* searchAula(const int piano, const int numero);

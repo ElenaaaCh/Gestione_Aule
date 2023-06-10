@@ -14,7 +14,7 @@ SOURCES += \
     Model/aulaConcerto.cpp \
     Model/aulaStrumentale.cpp \
     Model/aulaStudio.cpp \
-    Model/container.cpp \
+    Model/contenitore.cpp \
     Model/prenotazione.cpp \
     Model/storage.cpp \
     Model/utente.cpp \
@@ -28,7 +28,7 @@ HEADERS += \
     Model/aulaConcerto.h \
     Model/aulaStrumentale.h \
     Model/aulaStudio.h \
-    Model/container.h \
+    Model/contenitore.h \
     Model/prenotazione.h \
     Model/storage.h \
     Model/utente.h \

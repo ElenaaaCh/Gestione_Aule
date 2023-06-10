@@ -1,4 +1,4 @@
-#include "container.h"
+#include "contenitore.h"
 
 //Nodo
 
@@ -294,4 +294,24 @@ typename contenitore<T>::iteratore_const contenitore<T>::begin()const{
 template<class T>
 typename contenitore<T>::iteratore_const contenitore<T>::end()const{
     return iteratore_const(0);
+}
+
+template <class T>
+void contenitore<T>::insertSorted(const T& item, std::function<bool(const T&, const T&)> compare) {
+    nodo* nuovoNodo = new nodo(item, nullptr);
+
+    if (head == nullptr) {
+        head = nuovoNodo;
+    } else if (compare(item, head->info)) {
+        // Inserimento in testa
+        nuovoNodo->next = head;
+        head = nuovoNodo;
+    } else {
+        nodo* current = head;
+        while (current->next != nullptr && compare(current->next->info, item)) {
+            current = current->next;
+        }
+        nuovoNodo->next = current->next;
+        current->next = nuovoNodo;
+    }
 }

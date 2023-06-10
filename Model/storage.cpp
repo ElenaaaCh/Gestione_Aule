@@ -1,224 +1,74 @@
 #include "storage.h"
 
-storage::storage(NodoA* a, NodoPr* pr, vector<utente*> v): first_A(a), first_P(pr), pers(v){}
-
-storage::~storage() {
-    // Deallocazione aule
-    NodoA* nA = first_A;
-    while (nA != nullptr) {
-        NodoA* nextA = nA->succ;
-        delete nA->aula;
-        delete nA;
-        nA = nextA;
+storage::storage(contenitore<aula*>& aule_iniziali, contenitore<prenotazione*>& prenotazioni_iniziali, vector<utente*>& utenti_iniziali) {
+    // Aggiungi le aule iniziali al contenitore delle aule
+    for (auto aula : aule_iniziali) {
+        aule.push(aula);
     }
 
-    // Deallocazione prenotazioni
-    NodoPr* nP = first_P;
-    while (nP != nullptr) {
-        NodoPr* nextP = nP->succ;
-        delete nP->pren;
-        delete nP;
-        nP = nextP;
+    // Aggiungi le prenotazioni iniziali al contenitore delle prenotazioni
+    for (auto prenotazione : prenotazioni_iniziali) {
+        prenotazioni.push(prenotazione);
     }
 
-    // Deallocazione degli utenti
-    for (utente* u : pers) {
-        delete u;
-    }
-
-    pers.clear();
+    // Assegna il vettore degli utenti iniziali
+    pers = utenti_iniziali;
 }
 
 
-void storage::addAula(aula* a) {
-    NodoA* nuovoNodo = new NodoA;
-    nuovoNodo->aula = a;
-    nuovoNodo->prec = nullptr;
-    nuovoNodo->succ = nullptr;
-
-    //lista vuota
-    if (first_A == nullptr) {
-        first_A = nuovoNodo;
-    } else {
-        NodoA* nodoCorr = first_A;
-        NodoA* nodoPrec = nullptr;
-
-        while (nodoCorr != nullptr && (nodoCorr->aula->getPiano() < nuovoNodo->aula->getPiano() ||
-                                           (nodoCorr->aula->getPiano() == nuovoNodo->aula->getPiano() &&
-                                            nodoCorr->aula->getNumero() < nuovoNodo->aula->getNumero()))) {
-            nodoPrec = nodoCorr;
-            nodoCorr = nodoCorr->succ;
-        }
-
-        if (nodoPrec == nullptr) {
-            // Inserimento in testa
-            nuovoNodo->succ = first_A;
-            first_A->prec = nuovoNodo;
-            first_A = nuovoNodo;
-        } else {
-            // Inserimento tra due nodi o in coda
-            nuovoNodo->succ = nodoCorr;
-            nuovoNodo->prec = nodoPrec;
-            nodoPrec->succ = nuovoNodo;
-
-            if (nodoCorr!= nullptr) {
-                nodoCorr->prec = nuovoNodo;
-            }
-        }
+storage::~storage() {
+    // Dealloca le aule nel contenitore delle aule
+    for (auto aula : aule) {
+        delete aula;
     }
+
+    // Dealloca le prenotazioni nel contenitore delle prenotazioni
+    for (auto prenotazione : prenotazioni) {
+        delete prenotazione;
+    }
+
+    // Dealloca gli utenti nel vettore degli utenti
+    for (auto utente : pers) {
+        delete utente;
+    }
+}
+
+void storage::addAula(aula* a) {
+    aule.insertSorted(a, [](const aula* a1, const aula* a2) {
+        if (a1->getPiano() < a2->getPiano()) {
+            return true;
+        } else if (a1->getPiano() == a2->getPiano()) {
+            return a1->getNumero() < a2->getNumero();
+        } else {
+            return false;
+        }
+    });
 }
 
 void storage::viewAule() {
-    NodoA* nodoCorr = first_A;
-    while (nodoCorr != nullptr) {
-
-        // Stampa i dati dell'aula, conviene collegare tale funzione a un file di grafica qt??
-
-        nodoCorr = nodoCorr->succ;
+    for (auto aula : aule) {
+        // Stampa i dati dell'aula
     }
 }
 
-void storage::removeAula(aula* aula) {
-    NodoA* corr = first_A;
-
-    while (corr != nullptr) {
-        if (corr->aula == aula) {
-            if (corr->prec != nullptr) {
-                corr->prec->succ = corr->succ;
-            } else {
-                first_A = corr->succ;
-            }
-
-            if (corr->succ != nullptr) {
-                corr->succ->prec = corr->prec;
-            }
-
-            delete corr;
-            break;
-        }
-        corr = corr->succ;
-    }
-}
-
-aula* storage::searchAula(const int piano, const int numero) {
-    NodoA* corr = first_A;
-
-    while (corr != nullptr) {
-        aula* a = corr->aula;
-        if (a->getPiano() == piano && a->getNumero() == numero) {
-            return a;
-        }
-        corr = corr->succ;
-    }
-    return nullptr; // Aula non trovata
+void storage::removeAula(aula* aulaToRemove) {
+    aule.remove(aulaToRemove);
 }
 
 void storage::addPrenotazione(prenotazione* pr) {
-    NodoPr* nuovoNodo = new NodoPr;
-    nuovoNodo->pren = pr;
-    nuovoNodo->prec = nullptr;
-    nuovoNodo->succ = nullptr;
-
-    //lista vuota
-    if (first_P == nullptr) {
-        first_P = nuovoNodo;
-    } else {
-        NodoPr* nodoCorr = first_P;
-        NodoPr* nodoPrec = nullptr;
-
-        while (nodoCorr != nullptr && (nodoCorr->pren->getData() < nuovoNodo->pren->getData() ||
-                                       (nodoCorr->pren->getData() == nuovoNodo->pren->getData() &&
-                                        nodoCorr->pren->getOraArrivo() < nuovoNodo->pren->getOraArrivo()))) {
-            nodoPrec = nodoCorr;
-            nodoCorr = nodoCorr->succ;
-        }
-
-        if (nodoPrec == nullptr) {
-            // Inserimento in testa
-            nuovoNodo->succ = first_P;
-            first_P->prec = nuovoNodo;
-            first_P = nuovoNodo;
-        } else {
-            // Inserimento tra due nodi o in coda
-            nuovoNodo->succ = nodoCorr;
-            nuovoNodo->prec = nodoPrec;
-            nodoPrec->succ = nuovoNodo;
-
-            if (nodoCorr!= nullptr) {
-                nodoCorr->prec = nuovoNodo;
-            }
-        }
-    }
+    prenotazioni.insertSorted(pr, [](const prenotazione* a, const prenotazione* b) {
+        return a->getData() < b->getData();
+    });
 }
+
 
 void storage::viewPrenotazioni() {
-    NodoPr* nodoCorr = first_P;
-    while (nodoCorr != nullptr) {
-
-        // Stampa i dati dell'aula, conviene collegare tale funzione a un file di grafica qt??
-
-        nodoCorr = nodoCorr->succ;
+    for (auto pr : prenotazioni) {
+        // Stampa i dati dell'aula
     }
 }
 
-void storage::removePrenotazione(prenotazione* pr) {
-    NodoPr* corr = first_P;
-
-    while (corr != nullptr) {
-        if (corr->pren == pr) {
-            if (corr->prec != nullptr) {
-                corr->prec->succ = corr->succ;
-            } else {
-                first_P = corr->succ;
-            }
-
-            if (corr->succ != nullptr) {
-                corr->succ->prec = corr->prec;
-            }
-
-            delete corr;
-            break;
-        }
-        corr = corr->succ;
-    }
+void storage::removePrenotazione(prenotazione* prToRemove) {
+    prenotazioni.remove(prToRemove);
 }
 
-prenotazione* storage::searchPrenotazione(const QDate& data, const aula* aulaRiferimento) {
-    NodoPr* nodoCorr = first_P;
-
-    while (nodoCorr != nullptr) {
-        if (nodoCorr->pren->getData() == data && nodoCorr->pren->getAula() == aulaRiferimento) {
-            return nodoCorr->pren;  // La prenotazione è stata trovata
-        }
-
-        nodoCorr = nodoCorr->succ;
-    }
-
-    return nullptr;  // La prenotazione non è stata trovata
-}
-
-void storage::addUtente(utente* ut){
-    pers.push_back(ut);
-}
-
-void storage::removeUtente(const string& nome, const string& cognome) {
-    for (auto it = pers.begin(); it != pers.end(); ++it) {
-        if ((*it)->getNome() == nome && (*it)->getCognome() == cognome) {
-            delete *it;
-            pers.erase(it);
-            return;
-        }
-    }
-}
-
-void storage::modifyUtente(const string& nome, const string& cognome, const string& nuovoTelefono, const string& nuovaEmail) {
-    for (auto& ut : pers) {
-        if (ut->getNome() == nome && ut->getCognome() == cognome) {
-            ut->setTelefono(nuovoTelefono);
-            ut->setEmail(nuovaEmail);
-            // Modifica altre informazioni specifiche dell'utente se necessario
-            return;
-        }
-    }
-    std::cout << "Utente non trovato." << std::endl;
-}
