@@ -4,6 +4,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
 
+TARGET = Gestione_Aule
+TEMPLATE = app
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -20,7 +22,8 @@ SOURCES += \
     View/prova.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    registrazione.cpp
 
 HEADERS += \
     Model/aula.h \
@@ -32,7 +35,8 @@ HEADERS += \
     Model/storage.h \
     Model/utente.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    registrazione.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

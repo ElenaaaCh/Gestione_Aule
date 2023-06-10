@@ -1,5 +1,8 @@
 #include "Model/utente.h"
 
+utente::utente(string _nome, string _cognome, string _codiceFiscale, string _telefono, string _email, string _ruolo)
+    :nome(_nome), cognome(_cognome), codiceFiscale(_codiceFiscale), telefono(_telefono), email(_email), ruolo(_ruolo){}
+
 string utente::getNome() const { return nome; }
 void utente::setNome(const string &value) { 
     nome=value; 

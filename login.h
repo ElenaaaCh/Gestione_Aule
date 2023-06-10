@@ -2,13 +2,19 @@
 #define LOGIN_H
 
 #include <QtWidgets>
+#include <QPushButton>
+#include <QLabel>
+#include <QLineEdit>
 
 class LoginWindow : public QWidget
 {
     Q_OBJECT
 
 public:
-    LoginWindow(QWidget *parent = nullptr);
+    LoginWindow(QWidget *parent = nullptr); 
+
+private slots:
+    void onLoginButtonClicked();
 
 private:
     QLineEdit *emailLineEdit;

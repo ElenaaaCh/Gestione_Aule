@@ -5,8 +5,6 @@
 
 using std::string;
 
-enum tipoutente{Studente=0, Docente=1};
-
 class utente{
 private:
     string nome;
@@ -14,13 +12,12 @@ private:
     string codiceFiscale;
     string telefono;
     string email;
-    tipoutente persona;
+    string ruolo;
 
 public:
-    utente(string _nome="", string _cognome="", string _codiceFiscale="", string _telefono="", string _email="", tipoutente _tipo=Studente);
+    utente(string _nome="", string _cognome="", string _codiceFiscale="", string _telefono="", string _email="", string _ruolo="Studente");
     virtual ~utente() = default;
     virtual utente* clone() const = 0;
-    virtual tipoutente getTipoUtente() const = 0; //????
 
     string getNome() const;
     void setNome(const string &value);
