@@ -29,6 +29,7 @@ HEADERS += \
     Model/prenotazione.h \
     Model/storage.h \
     Model/utente.h \
+    login.h \
     mainwindow.h
 
 # Default rules for deployment.
