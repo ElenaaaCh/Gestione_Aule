@@ -3,7 +3,6 @@
 
 #include<iostream>
 #include<vector>
-
 #include "contenitore.h"
 #include "aula.h"
 #include "prenotazione.h"
