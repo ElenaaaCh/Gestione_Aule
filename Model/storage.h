@@ -3,13 +3,11 @@
 
 #include<iostream>
 #include<vector>
-#include "aula.h"
-#include "prenotazione.h"
-#include "utente.h"
+
 using std::vector;
 
 template <class T>
-class contenitore{
+class storage{
     friend class iteratore;
     friend class iteratore_const;
 private:
@@ -27,7 +25,7 @@ private:
 
 public:
     class iteratore{
-        friend class contenitore<T>;
+        friend class storage<T>;
     private:
         nodo* p;
         nodo* getNodo();
@@ -42,7 +40,7 @@ public:
         bool operator !=(const iteratore&)const;
     };
     class iteratore_const{
-        friend class contenitore<T>;
+        friend class storage<T>;
     private:
         nodo* p;
         const nodo* getNodo() const;
@@ -57,13 +55,13 @@ public:
         bool operator==(const iteratore_const&)const;
         bool operator!=(const iteratore_const&)const;
     };
-    contenitore();
-    contenitore(const contenitore&);
-    ~contenitore();
+    storage();
+    storage(const storage&);
+    ~storage();
 
-    bool operator==(const contenitore&)const;
-    bool operator!=(const contenitore&)const;
-    contenitore& operator=(const contenitore&);
+    bool operator==(const storage&)const;
+    bool operator!=(const storage&)const;
+    storage& operator=(const storage&);
 
     void push(const T&);
     int size() const;
