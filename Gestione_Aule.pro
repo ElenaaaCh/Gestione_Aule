@@ -14,6 +14,7 @@ SOURCES += \
     Model/aulaConcerto.cpp \
     Model/aulaStrumentale.cpp \
     Model/aulaStudio.cpp \
+    Model/container.cpp \
     Model/prenotazione.cpp \
     Model/storage.cpp \
     Model/utente.cpp \
