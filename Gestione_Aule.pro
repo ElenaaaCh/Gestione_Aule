@@ -19,7 +19,6 @@ SOURCES += \
     Model/storage.cpp \
     Model/utente.cpp \
     View/login.cpp \
-    View/prova.cpp \
     View/registrazione.cpp \
     login.cpp \
     main.cpp \
