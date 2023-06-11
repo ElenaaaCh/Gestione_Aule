@@ -27,3 +27,7 @@ string utente::getRuolo() const { return ruolo; }
 void utente::setRuolo(const string &value){
     ruolo=value;
 }
+string utente::getPassword() const { return password; }
+void utente::setPassword(const string &value){
+    password=value;
+}

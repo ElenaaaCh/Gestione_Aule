@@ -32,6 +32,8 @@ public:
     void setEmail(const string &value);
     string getRuolo() const;
     void setRuolo(const string &value);
+    string getPassword() const;
+    void setPassword(const string &value);
 };
 
 
