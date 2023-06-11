@@ -15,12 +15,12 @@ SOURCES += \
     Model/aulaConcerto.cpp \
     Model/aulaStrumentale.cpp \
     Model/aulaStudio.cpp \
-    Model/contenitore.cpp \
     Model/prenotazione.cpp \
     Model/storage.cpp \
     Model/utente.cpp \
     View/prova.cpp \
     login.cpp \
+    main.cpp \
     registrazione.cpp
 
 HEADERS += \
