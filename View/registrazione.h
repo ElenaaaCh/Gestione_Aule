@@ -3,7 +3,7 @@
 
 #include <QtWidgets>
 
-class RegistrationWindow : public QDialog
+class RegistrationWindow : public QWidget
 {
     Q_OBJECT
 

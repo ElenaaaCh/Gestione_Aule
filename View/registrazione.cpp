@@ -1,7 +1,7 @@
 #include "registrazione.h"
 
 RegistrationWindow::RegistrationWindow(QWidget *parent)
-    : QDialog(parent)
+    : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     QLabel *titleLabel = new QLabel("Registrazione", this);

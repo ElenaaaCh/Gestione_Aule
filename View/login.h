@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPixmap>
 
 class LoginWindow : public QWidget
 {

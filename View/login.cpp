@@ -4,9 +4,11 @@
 LoginWindow::LoginWindow(QWidget *parent)
     : QWidget(parent)
 {
+
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     // Aggiungi il logo
+
     QPixmap logo(":/Images/logo_consvi.jpeg");
     QLabel *logoLabel = new QLabel(this);
     logoLabel->setPixmap(logo);
@@ -15,7 +17,9 @@ LoginWindow::LoginWindow(QWidget *parent)
 
     // Aggiungi campi di testo per email e password
     emailLineEdit = new QLineEdit(this);
+    emailLineEdit->setPlaceholderText("inserire email");
     passwordLineEdit = new QLineEdit(this);
+    passwordLineEdit->setPlaceholderText("inserire password");
     layout->addWidget(emailLineEdit);
     layout->addWidget(passwordLineEdit);
 

@@ -18,7 +18,9 @@ SOURCES += \
     Model/prenotazione.cpp \
     Model/storage.cpp \
     Model/utente.cpp \
+    View/login.cpp \
     View/prova.cpp \
+    View/registrazione.cpp \
     login.cpp \
     main.cpp \
     registrazione.cpp
@@ -32,6 +34,8 @@ HEADERS += \
     Model/prenotazione.h \
     Model/storage.h \
     Model/utente.h \
+    View/login.h \
+    View/registrazione.h \
     login.h \
     registrazione.h
 
@@ -39,4 +43,8 @@ HEADERS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    Images/logo_consvi.jpeg \
+    View/Images/logo_consvi.jpeg
 
