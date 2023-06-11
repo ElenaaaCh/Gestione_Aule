@@ -45,12 +45,6 @@ void storage::addAula(aula* a) {
     });
 }
 
-void storage::viewAule() {
-    for (auto aula : aule) {
-        // Stampa i dati dell'aula
-    }
-}
-
 void storage::removeAula(aula* aulaToRemove) {
     aule.remove(aulaToRemove);
 }
@@ -59,13 +53,6 @@ void storage::addPrenotazione(prenotazione* pr) {
     prenotazioni.insertSorted(pr, [](const prenotazione* a, const prenotazione* b) {
         return a->getData() < b->getData();
     });
-}
-
-
-void storage::viewPrenotazioni() {
-    for (auto pr : prenotazioni) {
-        // Stampa i dati dell'aula
-    }
 }
 
 void storage::removePrenotazione(prenotazione* prToRemove) {

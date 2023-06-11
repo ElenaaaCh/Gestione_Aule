@@ -81,7 +81,6 @@ template<class T>
 typename contenitore<T>::iteratore_const contenitore<T>::begin()const{
     return iteratore_const(head);
 }
-#include "contenitore.h"
 
 //Nodo
 

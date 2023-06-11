@@ -13,9 +13,10 @@ private:
     string telefono;
     string email;
     string ruolo;
+    string password;
 
 public:
-    utente(string _nome="", string _cognome="", string _codiceFiscale="", string _telefono="", string _email="", string _ruolo="Studente");
+    utente(string _nome="", string _cognome="", string _codiceFiscale="", string _telefono="", string _email="", string _ruolo="Studente", string _pw="xyz");
     virtual ~utente() = default;
     virtual utente* clone() const = 0;
 
@@ -29,6 +30,8 @@ public:
     void setTelefono(const string &value);
     string getEmail() const;
     void setEmail(const string &value);
+    string getRuolo() const;
+    void setRuolo(const string &value);
 };
 
 

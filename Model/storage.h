@@ -18,14 +18,12 @@ private:
     vector<utente*> pers;
 public:
     storage(contenitore<aula*>& , contenitore<prenotazione*>& , vector<utente*>& );//costr
-    ~storage();//distr
+    virtual ~storage();//distr
     void addAula(aula* aula);
-    void viewAule();
     void removeAula(aula* aula);
     aula* searchAula(const int piano, const int numero);
 
     void addPrenotazione(prenotazione* pr);
-    void viewPrenotazioni();
     void removePrenotazione(prenotazione* pr);
     prenotazione* searchPrenotazione(const QDate& data, const aula* aulaRiferimento);
 
