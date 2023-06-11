@@ -58,4 +58,3 @@ void storage::addPrenotazione(prenotazione* pr) {
 void storage::removePrenotazione(prenotazione* prToRemove) {
     prenotazioni.remove(prToRemove);
 }
-
