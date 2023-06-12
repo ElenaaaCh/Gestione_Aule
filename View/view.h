@@ -22,7 +22,7 @@ public:
 
     //visualizzazione di messaggi all'utente
     void showMessage(const QString&,const QString&) ;
-    void showErorr(const QString&,const QString&);
+    void showError(const QString&,const QString&);
 
     void setDim(const QSize&); //setta la dimensione delle schermate
 

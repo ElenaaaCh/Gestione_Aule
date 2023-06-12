@@ -18,7 +18,7 @@ SOURCES += \
     Model/prenotazione.cpp \
     Model/storage.cpp \
     Model/utente.cpp \
-    View/login.cpp \
+    View/login_view.cpp \
     View/menu.cpp \
     View/registrazione.cpp \
     View/view.cpp \
@@ -33,7 +33,7 @@ HEADERS += \
     Model/prenotazione.h \
     Model/storage.h \
     Model/utente.h \
-    View/login.h \
+    View/login_view.h \
     View/menu.h \
     View/registrazione.h \
     View/view.h

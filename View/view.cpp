@@ -15,7 +15,7 @@ void View::showMessage(const QString& t,const QString& i)  {
     QMessageBox::information(this,t,i,QMessageBox::Ok);
 
 }
-void View::showErorr(const QString& t ,const QString& i )  {
+void View::showError(const QString& t ,const QString& i )  {
     QMessageBox::critical(this,t,i,QMessageBox::Ok);
 }
 void View::setViewTitle(const QString &title) {

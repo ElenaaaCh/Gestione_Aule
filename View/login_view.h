@@ -1,5 +1,5 @@
-#ifndef LOGIN_H
-#define LOGIN_H
+#ifndef LOGIN_VIEW_H
+#define LOGIN_VIEW_H
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -9,8 +9,9 @@
 #include <QLineEdit>
 #include <QPushButton>
 
+#include "view.h"
 
-class LoginWindow : public QWidget
+class LoginWindow : public View
 {
     Q_OBJECT
 
@@ -30,11 +31,11 @@ private:
     QLabel *registerLabel;
 
 public:
-    LoginWindow(QWidget *parent = nullptr); 
+    LoginWindow(const QSize& s, View *parent = nullptr);
 
 public slots:
     void onLoginButtonClicked();
 
 };
 
-#endif // LOGIN_H
+#endif // LOGIN_VIEW_H

@@ -1,9 +1,6 @@
-#include "login.h"
-#include "registrazione.h"
+#include "login_view.h"
 
-LoginWindow::LoginWindow(QWidget *parent)
-    : QWidget(parent)
-{
+LoginWindow::LoginWindow(const QSize& s, View* parent) : View(s, parent) {
 
     layout = new QVBoxLayout(this);
 
@@ -48,7 +45,7 @@ LoginWindow::LoginWindow(QWidget *parent)
     layout->addWidget(loginButton);
 
     // Connessione del pulsante di login al slot onLoginButtonClicked()
-    connect(loginButton, &QPushButton::clicked, this, &LoginWindow::onLoginButtonClicked);
+    connect(loginButton,SIGNAL(clicked(bool)),this,SLOT(onLoginButtonClicked()));
 
     // Aggiungi link per la registrazione
     registerLabel = new QLabel(this);
@@ -62,20 +59,14 @@ LoginWindow::LoginWindow(QWidget *parent)
     setLayout(layout) ;
 }
 
-void LoginWindow::onLoginButtonClicked()
-{
-    // Effettua l'elaborazione del login
+void LoginWindow::onLoginButtonClicked(){
+    //controlli base, gli altri vanno fatti sul login_controller
     QString email = emailLineEdit->text();
     QString password = passwordLineEdit->text();
 
-    // Esempio di controllo delle credenziali
-    if (email == "user@example.com" && password == "password") {
-        // Login riuscito, passa alla finestra successiva
-        RegistrationWindow *registrationWindow = new RegistrationWindow();
-        registrationWindow->show();
-        close(); // Chiude la finestra di login
+    if(email.isEmpty() || password.isEmpty()){
+        static_cast<View*>(this)->showError("Inserimento errato", "Il valore inserito non è permesso");
     } else {
-        // Login non valido, mostra un messaggio di errore
-        QMessageBox::warning(this, "Login fallito", "Credenziali non valide. Riprova.");
+        //emit Login_valido(email, password);
     }
 }
