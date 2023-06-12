@@ -18,6 +18,7 @@ private slots:
     void onLoginButtonClicked();
 
 private:
+    QLabel* logoLabel;
     QLineEdit *emailLineEdit;
     QLineEdit *passwordLineEdit;
 };

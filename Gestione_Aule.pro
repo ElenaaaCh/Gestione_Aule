@@ -20,9 +20,7 @@ SOURCES += \
     Model/utente.cpp \
     View/login.cpp \
     View/registrazione.cpp \
-    login.cpp \
     main.cpp \
-    registrazione.cpp
 
 HEADERS += \
     Model/aula.h \
@@ -35,8 +33,7 @@ HEADERS += \
     Model/utente.h \
     View/login.h \
     View/registrazione.h \
-    login.h \
-    registrazione.h
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -44,6 +41,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    Images/logo_consvi.jpeg \
     View/Images/logo_consvi.jpeg
 

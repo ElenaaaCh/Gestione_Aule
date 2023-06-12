@@ -8,20 +8,40 @@ LoginWindow::LoginWindow(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     // Aggiungi il logo
-
     QPixmap logo(":/Images/logo_consvi.jpeg");
-    QLabel *logoLabel = new QLabel(this);
-    logoLabel->setPixmap(logo);
+    logoLabel=new QLabel();
+    logoLabel->setPixmap(logo.scaledToHeight(256));
     logoLabel->setAlignment(Qt::AlignHCenter);
     layout->addWidget(logoLabel);
 
-    // Aggiungi campi di testo per email e password
-    emailLineEdit = new QLineEdit(this);
+    QLabel *benvenutoLabel = new QLabel();
+    benvenutoLabel->setLayoutDirection(Qt::LeftToRight);
+    benvenutoLabel->setText("Benvenuto!");
+    benvenutoLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(benvenutoLabel);
+
+    QHBoxLayout *HLayout = new QHBoxLayout();
+    layout->addLayout(HLayout);
+
+    QLabel *emailLabel = new QLabel();
+    emailLabel->setText("Email");
+    HLayout->addWidget(emailLabel);
+
+    emailLineEdit = new QLineEdit();
     emailLineEdit->setPlaceholderText("inserire email");
-    passwordLineEdit = new QLineEdit(this);
+    HLayout->addWidget(emailLineEdit);
+
+    QHBoxLayout *HLayout2 = new QHBoxLayout();
+    layout->addLayout(HLayout2);
+
+    QLabel *passwLabel = new QLabel();
+    passwLabel->setText("Password");
+    HLayout2->addWidget(passwLabel);
+
+    passwordLineEdit = new QLineEdit();
     passwordLineEdit->setPlaceholderText("inserire password");
-    layout->addWidget(emailLineEdit);
-    layout->addWidget(passwordLineEdit);
+    HLayout2->addWidget(passwordLineEdit);
+
 
     // Aggiungi pulsante di login
     QPushButton *loginButton = new QPushButton("Login", this);
@@ -37,6 +57,8 @@ LoginWindow::LoginWindow(QWidget *parent)
     registerLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     registerLabel->setOpenExternalLinks(true);
     layout->addWidget(registerLabel);
+
+    setLayout(layout) ;
 }
 
 void LoginWindow::onLoginButtonClicked()
