@@ -5,7 +5,7 @@ LoginWindow::LoginWindow(QWidget *parent)
     : QWidget(parent)
 {
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout = new QVBoxLayout(this);
 
     // Aggiungi il logo
     QPixmap logo(":/Images/logo_consvi.jpeg");
@@ -14,46 +14,44 @@ LoginWindow::LoginWindow(QWidget *parent)
     logoLabel->setAlignment(Qt::AlignHCenter);
     layout->addWidget(logoLabel);
 
-    QLabel *benvenutoLabel = new QLabel();
+    benvenutoLabel = new QLabel();
     benvenutoLabel->setLayoutDirection(Qt::LeftToRight);
     benvenutoLabel->setText("Benvenuto!");
     benvenutoLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(benvenutoLabel);
 
-    QHBoxLayout *HLayout = new QHBoxLayout();
+    HLayout = new QHBoxLayout();
     layout->addLayout(HLayout);
 
-    QVBoxLayout *Vl1 = new QVBoxLayout();
-    HLayout->addLayout(Vl1);
-
-    QLabel *emailLabel = new QLabel();
+    Vl1 = new QVBoxLayout();
+    emailLabel = new QLabel();
     emailLabel->setText("Email");
     Vl1->addWidget(emailLabel);
-    QLabel *passwLabel = new QLabel();
+    passwLabel = new QLabel();
     passwLabel->setText("Password");
     Vl1->addWidget(passwLabel);
+    HLayout->addLayout(Vl1);
 
     HLayout->addStretch();
 
-    QVBoxLayout *Vl2 = new QVBoxLayout();
-    HLayout->addLayout(Vl2);
-
+    Vl2 = new QVBoxLayout();
     emailLineEdit = new QLineEdit();
     emailLineEdit->setPlaceholderText("inserire email");
     Vl2->addWidget(emailLineEdit);
     passwordLineEdit = new QLineEdit();
     passwordLineEdit->setPlaceholderText("inserire password");
     Vl2->addWidget(passwordLineEdit);
+    HLayout->addLayout(Vl2);
 
     // Aggiungi pulsante di login
-    QPushButton *loginButton = new QPushButton("Login", this);
+    loginButton = new QPushButton("Login", this);
     layout->addWidget(loginButton);
 
     // Connessione del pulsante di login al slot onLoginButtonClicked()
     connect(loginButton, &QPushButton::clicked, this, &LoginWindow::onLoginButtonClicked);
 
     // Aggiungi link per la registrazione
-    QLabel *registerLabel = new QLabel(this);
+    registerLabel = new QLabel(this);
     registerLabel->setText("<a href='register'>Non sei registrato? Registrati</a>");
     registerLabel->setAlignment(Qt::AlignRight);
     registerLabel->setTextFormat(Qt::RichText);

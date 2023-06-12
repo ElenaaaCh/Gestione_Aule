@@ -1,21 +1,35 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <QtWidgets>
-#include <QLabel>
+#include "view.h"
 
-class MenuWindow : public QWidget {
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QMessageBox>
+#include <QObject>
+
+class MenuWindow : public View {
     Q_OBJECT
+private:
+    QVBoxLayout *layout;
+    QLabel* logoLabel;
+    QLabel* benvenuto;
+    QHBoxLayout* HLayout;
+    QPushButton* viewAuleButton;
+    QPushButton* viewPrenButton;
+
+protected:
+    explicit MenuWindow();//costr
 
 public:
-    MenuWindow(QWidget *parent = nullptr);
+    MenuWindow(const QSize&, View*);
+    void closeEvent(QCloseEvent *event) override;
 
-private slots:
+public slots:
     void onViewAuleButtonClicked();
     void onViewPrenButtonClicked();
-
-private:
-    QLabel* logoLabel;
 };
 
 #endif // MENU_H

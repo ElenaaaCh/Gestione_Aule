@@ -1,24 +1,34 @@
 #include "menu.h"
 
-MenuWindow::MenuWindow(QWidget *parent)
-    : QWidget(parent)
+MenuWindow::MenuWindow(const QSize & s, View * parent)
+    : View(s,parent)
 {
-
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout = new QVBoxLayout(this);
 
     //logo
 
-    QLabel* benvenuto = new QLabel("Benvenuto" /*+ getNome() + " "+ getCognome() */ );
+    benvenuto = new QLabel("Benvenuto" /*+ getNome() + " "+ getCognome() */ );
     layout->addWidget(benvenuto);
 
-    QHBoxLayout* HLayout = new QHBoxLayout ();
-
-    QPushButton* viewAuleButton= new QPushButton("Visualizza Aule");
+    HLayout = new QHBoxLayout();
+    viewAuleButton= new QPushButton("Visualizza Aule");
     HLayout->addWidget(viewAuleButton);
     HLayout->addStretch();
-    QPushButton* viewPrenButton= new QPushButton("Visualizza Prenotazioni");
+    viewPrenButton= new QPushButton("Visualizza Prenotazioni");
     HLayout->addWidget(viewPrenButton);
 
     layout->addLayout(HLayout);
 
+    // Connessione del pulsante allo slot
+    connect(viewAuleButton, &QPushButton::clicked, this, &MenuWindow::onViewAuleButtonClicked);
+    connect(viewPrenButton, &QPushButton::clicked, this, &MenuWindow::onViewPrenButtonClicked);
+}
+
+void MenuWindow::closeEvent(QCloseEvent *event){
+    if(QMessageBox::question(this,QObject::tr("Uscita"),QObject::tr("Vuoi uscire davvero?"),QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes){
+        event->accept();
+        emit viewClosed();
+    }
+    else
+        event->ignore();
 }

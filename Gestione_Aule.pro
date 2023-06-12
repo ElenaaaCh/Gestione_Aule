@@ -21,6 +21,7 @@ SOURCES += \
     View/login.cpp \
     View/menu.cpp \
     View/registrazione.cpp \
+    View/view.cpp \
     main.cpp \
 
 HEADERS += \
@@ -35,6 +36,7 @@ HEADERS += \
     View/login.h \
     View/menu.h \
     View/registrazione.h \
+    View/view.h
 
 
 # Default rules for deployment.
