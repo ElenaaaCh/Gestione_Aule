@@ -11,13 +11,11 @@
 
 #include "view.h"
 
-class LoginWindow : public View
-{
+class LoginWindow : public View {
     Q_OBJECT
-
 private:
     QVBoxLayout *layout;
-    QLabel* logoLabel;
+    QLabel *logoLabel;
     QLabel *benvenutoLabel;
 
     QHBoxLayout *HLayout;
@@ -30,8 +28,11 @@ private:
     QPushButton *loginButton;
     QLabel *registerLabel;
 
+protected:
+    explicit LoginWindow();
+
 public:
-    LoginWindow(const QSize& s, View *parent = nullptr);
+    explicit LoginWindow(const QSize& s, View *parent = nullptr);
 
 public slots:
     void onLoginButtonClicked();

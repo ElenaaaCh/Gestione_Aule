@@ -6,36 +6,36 @@ LoginWindow::LoginWindow(const QSize& s, View* parent) : View(s, parent) {
 
     // Aggiungi il logo
     QPixmap logo(":/Images/logo_consvi.jpeg");
-    logoLabel=new QLabel();
+    logoLabel=new QLabel(this);
     logoLabel->setPixmap(logo.scaledToHeight(256));
     logoLabel->setAlignment(Qt::AlignHCenter);
     layout->addWidget(logoLabel);
 
-    benvenutoLabel = new QLabel();
-    benvenutoLabel->setLayoutDirection(Qt::LeftToRight);
+    benvenutoLabel = new QLabel(this);
+    //benvenutoLabel->setLayoutDirection(Qt::LeftToRight);
     benvenutoLabel->setText("Benvenuto!");
     benvenutoLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(benvenutoLabel);
 
-    HLayout = new QHBoxLayout();
+    HLayout = new QHBoxLayout(this);
     layout->addLayout(HLayout);
 
-    Vl1 = new QVBoxLayout();
-    emailLabel = new QLabel();
+    Vl1 = new QVBoxLayout(this);
+    emailLabel = new QLabel(this);
     emailLabel->setText("Email");
     Vl1->addWidget(emailLabel);
-    passwLabel = new QLabel();
+    passwLabel = new QLabel(this);
     passwLabel->setText("Password");
     Vl1->addWidget(passwLabel);
     HLayout->addLayout(Vl1);
 
     HLayout->addStretch();
 
-    Vl2 = new QVBoxLayout();
-    emailLineEdit = new QLineEdit();
+    Vl2 = new QVBoxLayout(this);
+    emailLineEdit = new QLineEdit(this);
     emailLineEdit->setPlaceholderText("inserire email");
     Vl2->addWidget(emailLineEdit);
-    passwordLineEdit = new QLineEdit();
+    passwordLineEdit = new QLineEdit(this);
     passwordLineEdit->setPlaceholderText("inserire password");
     Vl2->addWidget(passwordLineEdit);
     HLayout->addLayout(Vl2);
