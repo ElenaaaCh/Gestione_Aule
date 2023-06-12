@@ -4,37 +4,78 @@ RegistrationWindow::RegistrationWindow(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
-    QLabel *titleLabel = new QLabel("Registrazione", this);
+    QLabel *titleLabel = new QLabel("Form di registrazione", this);
+    titleLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(titleLabel);
 
-    // Campi di input per la registrazione
-    nameLineEdit = new QLineEdit(this);
-    surnameLineEdit = new QLineEdit(this);
-    fiscalCodeLineEdit = new QLineEdit(this);
+    QHBoxLayout *HLayout = new QHBoxLayout();
+    layout->addLayout(HLayout);
+
+    QVBoxLayout *Vl1 = new QVBoxLayout();
+    HLayout->addLayout(Vl1);
+
+    QLabel *nomeLabel = new QLabel("Nome");
+    QLabel *cognomeLabel = new QLabel("Cognome");
+    //cognomeLabel->setText("Cognome");
+    QLabel *codLabel = new QLabel();
+    codLabel->setText("Codice fiscale");
+    QLabel *phoneLabel = new QLabel();
+    phoneLabel->setText("Numero di telefono");
+    QLabel *emailLabel = new QLabel();
+    emailLabel->setText("Email");
+    QLabel *ruoloLabel = new QLabel();
+    ruoloLabel->setText("Ruolo");
+    QLabel *passwLabel = new QLabel();
+    passwLabel->setText("Password");
+    QLabel *cPasswLabel = new QLabel();
+    cPasswLabel->setText("Conferma Password");
+
+    Vl1->addWidget(nomeLabel);
+    Vl1->addWidget(cognomeLabel);
+    Vl1->addWidget(codLabel);
+    Vl1->addWidget(phoneLabel);
+    Vl1->addWidget(emailLabel);
+    Vl1->addWidget(ruoloLabel);
+    Vl1->addWidget(passwLabel);
+    Vl1->addWidget(cPasswLabel);
+
+    HLayout->addStretch();
+
+    QVBoxLayout *Vl2 = new QVBoxLayout();
+    HLayout->addLayout(Vl2);
+
+    nomeLineEdit = new QLineEdit(this);
+    emailLineEdit->setPlaceholderText("Inserire nome");
+    cognomeLineEdit = new QLineEdit(this);
+    emailLineEdit->setPlaceholderText("Inserire cognome");
+    codLineEdit = new QLineEdit(this);
+    emailLineEdit->setPlaceholderText("Inserire codice fiscale");
     phoneLineEdit = new QLineEdit(this);
-    emailLineEdit = new QLineEdit(this);
+    emailLineEdit->setPlaceholderText("Inserire numero di telefono");
+    emailLineEdit = new QLineEdit();
+    emailLineEdit->setPlaceholderText("Inserire email");
 
-    QLabel *roleLabel = new QLabel("Ruolo:", this);
-    teacherRadioButton = new QRadioButton("Docente", this);
-    studentRadioButton = new QRadioButton("Studente", this);
+    docenteRadioButton = new QRadioButton("Docente", this);
+    studenteRadioButton = new QRadioButton("Studente", this);
     QHBoxLayout *roleLayout = new QHBoxLayout;
-    roleLayout->addWidget(roleLabel);
-    roleLayout->addWidget(teacherRadioButton);
-    roleLayout->addWidget(studentRadioButton);
+    roleLayout->addWidget(docenteRadioButton);
+    roleLayout->addWidget(studenteRadioButton);
 
-    passwordLineEdit = new QLineEdit(this);
+    passwordLineEdit = new QLineEdit();
+    passwordLineEdit->setPlaceholderText("Inserire password");
     passwordLineEdit->setEchoMode(QLineEdit::Password);
-    confirmPasswordLineEdit = new QLineEdit(this);
+    confirmPasswordLineEdit = new QLineEdit();
+    confirmPasswordLineEdit->setPlaceholderText("Re-inserire password");
     confirmPasswordLineEdit->setEchoMode(QLineEdit::Password);
 
-    layout->addWidget(nameLineEdit);
-    layout->addWidget(surnameLineEdit);
-    layout->addWidget(fiscalCodeLineEdit);
-    layout->addWidget(phoneLineEdit);
-    layout->addWidget(emailLineEdit);
-    layout->addLayout(roleLayout);
-    layout->addWidget(passwordLineEdit);
-    layout->addWidget(confirmPasswordLineEdit);
+    Vl2->addWidget(nomeLineEdit);
+    Vl2->addWidget(cognomeLineEdit);
+    Vl2->addWidget(codLineEdit);
+    Vl2->addWidget(phoneLineEdit);
+    Vl2->addWidget(emailLineEdit);
+    Vl2->addLayout(roleLayout);
+    Vl2->addWidget(passwordLineEdit);
+    Vl2->addWidget(confirmPasswordLineEdit);
 
     // Pulsante di registrazione
     QPushButton *registerButton = new QPushButton("Registrati", this);
@@ -47,12 +88,12 @@ RegistrationWindow::RegistrationWindow(QWidget *parent)
 void RegistrationWindow::onRegisterButtonClicked()
 {
     // Elaborazione della registrazione
-    QString name = nameLineEdit->text();
-    QString surname = surnameLineEdit->text();
-    QString fiscalCode = fiscalCodeLineEdit->text();
+    QString name = nomeLineEdit->text();
+    QString surname = cognomeLineEdit->text();
+    QString fiscalCode = codLineEdit->text();
     QString phone = phoneLineEdit->text();
     QString email = emailLineEdit->text();
-    QString role = teacherRadioButton->isChecked() ? "Docente" : "Studente";
+    QString role = docenteRadioButton->isChecked() ? "Docente" : "Studente";
     QString password = passwordLineEdit->text();
     QString confirmPassword = confirmPasswordLineEdit->text();
 

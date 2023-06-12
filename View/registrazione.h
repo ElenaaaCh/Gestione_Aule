@@ -2,6 +2,11 @@
 #define REGISTRAZIONE_H
 
 #include <QtWidgets>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QRadioButton>
+
 
 class RegistrationWindow : public QWidget
 {
@@ -14,13 +19,13 @@ private slots:
     void onRegisterButtonClicked();
 
 private:
-    QLineEdit *nameLineEdit;
-    QLineEdit *surnameLineEdit;
-    QLineEdit *fiscalCodeLineEdit;
+    QLineEdit *nomeLineEdit;
+    QLineEdit *cognomeLineEdit;
+    QLineEdit *codLineEdit;
     QLineEdit *phoneLineEdit;
     QLineEdit *emailLineEdit;
-    QRadioButton *teacherRadioButton;
-    QRadioButton *studentRadioButton;
+    QRadioButton *docenteRadioButton;
+    QRadioButton *studenteRadioButton;
     QLineEdit *passwordLineEdit;
     QLineEdit *confirmPasswordLineEdit;
 };
