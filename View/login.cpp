@@ -23,25 +23,27 @@ LoginWindow::LoginWindow(QWidget *parent)
     QHBoxLayout *HLayout = new QHBoxLayout();
     layout->addLayout(HLayout);
 
+    QVBoxLayout *Vl1 = new QVBoxLayout();
+    HLayout->addLayout(Vl1);
+
     QLabel *emailLabel = new QLabel();
     emailLabel->setText("Email");
-    HLayout->addWidget(emailLabel);
+    Vl1->addWidget(emailLabel);
+    QLabel *passwLabel = new QLabel();
+    passwLabel->setText("Password");
+    Vl1->addWidget(passwLabel);
+
+    HLayout->addStretch();
+
+    QVBoxLayout *Vl2 = new QVBoxLayout();
+    HLayout->addLayout(Vl2);
 
     emailLineEdit = new QLineEdit();
     emailLineEdit->setPlaceholderText("inserire email");
-    HLayout->addWidget(emailLineEdit);
-
-    QHBoxLayout *HLayout2 = new QHBoxLayout();
-    layout->addLayout(HLayout2);
-
-    QLabel *passwLabel = new QLabel();
-    passwLabel->setText("Password");
-    HLayout2->addWidget(passwLabel);
-
+    Vl2->addWidget(emailLineEdit);
     passwordLineEdit = new QLineEdit();
     passwordLineEdit->setPlaceholderText("inserire password");
-    HLayout2->addWidget(passwordLineEdit);
-
+    Vl2->addWidget(passwordLineEdit);
 
     // Aggiungi pulsante di login
     QPushButton *loginButton = new QPushButton("Login", this);
