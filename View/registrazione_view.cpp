@@ -88,26 +88,29 @@ RegistrationWindow::RegistrationWindow(const QSize & s, View * parent) : View(s,
 void RegistrationWindow::onRegisterButtonClicked()
 {
     // Elaborazione della registrazione
-    QString name = nomeLineEdit->text();
-    QString surname = cognomeLineEdit->text();
-    QString fiscalCode = codLineEdit->text();
+    QString nome = nomeLineEdit->text();
+    QString cognome = cognomeLineEdit->text();
+    QString cod_fiscale = codLineEdit->text();
     QString phone = phoneLineEdit->text();
     QString email = emailLineEdit->text();
-    QString role = docenteRadioButton->isChecked() ? "Docente" : "Studente";
+    QString ruolo = docenteRadioButton->isChecked() ? "Docente" : "Studente";
     QString password = passwordLineEdit->text();
     QString confirmPassword = confirmPasswordLineEdit->text();
 
     // Controllo campi vuoti
-    if (name.isEmpty() || surname.isEmpty() || fiscalCode.isEmpty() || phone.isEmpty() ||
+    if (nome.isEmpty() || cognome.isEmpty() || cod_fiscale.isEmpty() || phone.isEmpty() ||
         email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
         QMessageBox::warning(this, "Errore di registrazione", "Riempi tutti i campi.");
         return;
     }
-
-    //controllo corrispondenza password
-    if (password != confirmPassword) {
-        QMessageBox::warning(this, "Errore di registrazione", "Le password non corrispondono.");
-        return;
+    else{
+        if (password != confirmPassword) {
+            QMessageBox::warning(this, "Errore di registrazione", "Le password non corrispondono.");
+            return;
+        }
+        else{
+            //emit Utente_add(nome, cognome, cod_fiscale, phone, email, ruolo, password);
+        }
     }
 
     QMessageBox::information(this, "Registrazione completata", "Registrazione avvenuta con successo!");
