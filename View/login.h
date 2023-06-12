@@ -1,7 +1,7 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 
-#include <QtWidgets>
+#include <QtWidgets> //forse è più corretto <QWidget>
 #include <QPushButton>
 #include <QLabel>
 #include <QLineEdit>
