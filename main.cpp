@@ -12,10 +12,9 @@ int main(int argc, char *argv[])
 
     /*LoginWindow* l = new LoginWindow();
     l->show();
-
+    */
     RegistrationWindow* r= new RegistrationWindow(QSize(500,500),nullptr);
     r->show();
-*/
     return QApplication::exec();
 
 }

@@ -22,7 +22,12 @@ MenuWindow::MenuWindow(const QSize & s, View * parent) : View(s,parent) {
     connect(viewAuleButton,SIGNAL(clicked(bool)),this,SLOT(onViewAuleButtonClicked()));
     connect(viewPrenButton,SIGNAL(clicked(bool)),this,SLOT(onViewPrenButtonClicked()));
 }
+void MenuWindow::onViewAuleButtonClicked(){
 
+}
+void MenuWindow::onViewPrenButtonClicked(){
+    
+}
 void MenuWindow::closeEvent(QCloseEvent *event){
     if(QMessageBox::question(this,"Uscita","Vuoi uscire davvero?",QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes){
         event->accept();
