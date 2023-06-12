@@ -3,7 +3,7 @@
 #include<QDebug>
 #include<QObject>
 //#include "View/login.h"
-#include "View/registrazione.h"
+#include "View/registrazione_view.h"
 
 
 int main(int argc, char *argv[])

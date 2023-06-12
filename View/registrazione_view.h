@@ -1,5 +1,7 @@
-#ifndef REGISTRAZIONE_H
-#define REGISTRAZIONE_H
+#ifndef REGISTRAZIONE_VIEW_H
+#define REGISTRAZIONE_VIEW_H
+
+#include "view.h"
 
 #include <QtWidgets>
 #include <QLabel>
@@ -8,15 +10,9 @@
 #include <QRadioButton>
 
 
-class RegistrationWindow : public QWidget
+class RegistrationWindow : public View
 {
     Q_OBJECT
-
-public:
-    RegistrationWindow(QWidget *parent = nullptr);
-
-private slots:
-    void onRegisterButtonClicked();
 
 private:
     QLineEdit *nomeLineEdit;
@@ -28,6 +24,16 @@ private:
     QRadioButton *studenteRadioButton;
     QLineEdit *passwordLineEdit;
     QLineEdit *confirmPasswordLineEdit;
+
+protected:
+    explicit RegistrationWindow();
+
+public:
+    explicit RegistrationWindow(const QSize& s, View *parent = nullptr);
+
+public slots:
+    void onRegisterButtonClicked();
+
 };
 
-#endif // REGISTRAZIONE_H
+#endif // REGISTRAZIONE_VIEW_H

@@ -1,33 +1,33 @@
-#include "registrazione.h"
+#include "registrazione_view.h"
 
-RegistrationWindow::RegistrationWindow(QWidget *parent)
-    : QWidget(parent)
+RegistrationWindow::RegistrationWindow(const QSize & s, View * parent) : View(s,parent)
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     QLabel *titleLabel = new QLabel("Form di registrazione", this);
     titleLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(titleLabel);
 
-    QHBoxLayout *HLayout = new QHBoxLayout();
+    QHBoxLayout *HLayout = new QHBoxLayout(this);
     layout->addLayout(HLayout);
 
-    QVBoxLayout *Vl1 = new QVBoxLayout();
+    QVBoxLayout *Vl1 = new QVBoxLayout(this);
     HLayout->addLayout(Vl1);
 
-    QLabel *nomeLabel = new QLabel("Nome");
-    QLabel *cognomeLabel = new QLabel("Cognome");
-    //cognomeLabel->setText("Cognome");
-    QLabel *codLabel = new QLabel();
+    QLabel *nomeLabel = new QLabel(this);
+    nomeLabel->setText("Codice fiscale");
+    QLabel *cognomeLabel = new QLabel(this);
+    cognomeLabel->setText("Codice fiscale");
+    QLabel *codLabel = new QLabel(this);
     codLabel->setText("Codice fiscale");
-    QLabel *phoneLabel = new QLabel();
+    QLabel *phoneLabel = new QLabel(this);
     phoneLabel->setText("Numero di telefono");
-    QLabel *emailLabel = new QLabel();
+    QLabel *emailLabel = new QLabel(this);
     emailLabel->setText("Email");
-    QLabel *ruoloLabel = new QLabel();
+    QLabel *ruoloLabel = new QLabel(this);
     ruoloLabel->setText("Ruolo");
-    QLabel *passwLabel = new QLabel();
+    QLabel *passwLabel = new QLabel(this);
     passwLabel->setText("Password");
-    QLabel *cPasswLabel = new QLabel();
+    QLabel *cPasswLabel = new QLabel(this);
     cPasswLabel->setText("Conferma Password");
 
     Vl1->addWidget(nomeLabel);
@@ -41,30 +41,30 @@ RegistrationWindow::RegistrationWindow(QWidget *parent)
 
     HLayout->addStretch();
 
-    QVBoxLayout *Vl2 = new QVBoxLayout();
+    QVBoxLayout *Vl2 = new QVBoxLayout(this);
     HLayout->addLayout(Vl2);
 
     nomeLineEdit = new QLineEdit(this);
-    emailLineEdit->setPlaceholderText("Inserire nome");
+    nomeLineEdit->setPlaceholderText("Inserire nome");
     cognomeLineEdit = new QLineEdit(this);
-    emailLineEdit->setPlaceholderText("Inserire cognome");
+    cognomeLineEdit->setPlaceholderText("Inserire cognome");
     codLineEdit = new QLineEdit(this);
-    emailLineEdit->setPlaceholderText("Inserire codice fiscale");
+    codLineEdit->setPlaceholderText("Inserire codice fiscale");
     phoneLineEdit = new QLineEdit(this);
-    emailLineEdit->setPlaceholderText("Inserire numero di telefono");
-    emailLineEdit = new QLineEdit();
+    phoneLineEdit->setPlaceholderText("Inserire numero di telefono");
+    emailLineEdit = new QLineEdit(this);
     emailLineEdit->setPlaceholderText("Inserire email");
 
     docenteRadioButton = new QRadioButton("Docente", this);
     studenteRadioButton = new QRadioButton("Studente", this);
-    QHBoxLayout *roleLayout = new QHBoxLayout;
+    QHBoxLayout *roleLayout = new QHBoxLayout(this);
     roleLayout->addWidget(docenteRadioButton);
     roleLayout->addWidget(studenteRadioButton);
 
-    passwordLineEdit = new QLineEdit();
+    passwordLineEdit = new QLineEdit(this);
     passwordLineEdit->setPlaceholderText("Inserire password");
     passwordLineEdit->setEchoMode(QLineEdit::Password);
-    confirmPasswordLineEdit = new QLineEdit();
+    confirmPasswordLineEdit = new QLineEdit(this);
     confirmPasswordLineEdit->setPlaceholderText("Re-inserire password");
     confirmPasswordLineEdit->setEchoMode(QLineEdit::Password);
 
@@ -97,21 +97,19 @@ void RegistrationWindow::onRegisterButtonClicked()
     QString password = passwordLineEdit->text();
     QString confirmPassword = confirmPasswordLineEdit->text();
 
-    // Esempio di validazione dei campi
+    // Controllo campi vuoti
     if (name.isEmpty() || surname.isEmpty() || fiscalCode.isEmpty() || phone.isEmpty() ||
         email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
         QMessageBox::warning(this, "Errore di registrazione", "Riempi tutti i campi.");
         return;
     }
 
+    //controllo corrispondenza password
     if (password != confirmPassword) {
         QMessageBox::warning(this, "Errore di registrazione", "Le password non corrispondono.");
         return;
     }
 
-    // Eseguire altre operazioni di registrazione qui, ad esempio salvare i dati nel database
-
-    // Mostra un messaggio di successo
     QMessageBox::information(this, "Registrazione completata", "Registrazione avvenuta con successo!");
     close();
 }

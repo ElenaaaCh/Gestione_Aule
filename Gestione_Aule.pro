@@ -20,7 +20,7 @@ SOURCES += \
     Model/utente.cpp \
     View/login_view.cpp \
     View/menu_view.cpp \
-    View/registrazione.cpp \
+    View/registrazione_view.cpp \
     View/view.cpp \
     main.cpp \
 
@@ -35,7 +35,7 @@ HEADERS += \
     Model/utente.h \
     View/login_view.h \
     View/menu_view.h \
-    View/registrazione.h \
+    View/registrazione_view.h \
     View/view.h
 
 

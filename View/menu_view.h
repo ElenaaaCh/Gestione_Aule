@@ -24,7 +24,7 @@ protected:
     explicit MenuWindow();//costr
 
 public:
-    MenuWindow(const QSize&, View*);
+    explicit MenuWindow(const QSize&, View*);
     void closeEvent(QCloseEvent *event) override;
 
 public slots: //forse non servono, in quanto basta un segnale!!!
