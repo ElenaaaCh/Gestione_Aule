@@ -55,6 +55,7 @@ LoginWindow::LoginWindow(QWidget *parent)
     // Aggiungi link per la registrazione
     QLabel *registerLabel = new QLabel(this);
     registerLabel->setText("<a href='register'>Non sei registrato? Registrati</a>");
+    registerLabel->setAlignment(Qt::AlignRight);
     registerLabel->setTextFormat(Qt::RichText);
     registerLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
     registerLabel->setOpenExternalLinks(true);
