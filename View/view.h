@@ -15,7 +15,7 @@ protected:
     //costr protected ->non usabili all'esterno
     explicit View(const QSize&, View* =nullptr);
     explicit View();
-    View(const View&);
+    View(View&);
 
 public:
     virtual ~View(); //distr virtuale
