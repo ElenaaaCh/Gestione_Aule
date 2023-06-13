@@ -70,3 +70,12 @@ void LoginWindow::onLoginButtonClicked(){
         //emit Login_valido(email, password);
     }
 }
+
+void LoginWindow::closeEvent(QCloseEvent *event){
+    if(QMessageBox::question(this,"Uscita","Vuoi uscire davvero?",QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes){
+        event->accept();
+        emit viewClosed();
+    }
+    else
+        event->ignore();
+}

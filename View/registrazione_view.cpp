@@ -14,9 +14,9 @@ RegistrationWindow::RegistrationWindow(const QSize & s, View * parent) : View(s,
     HLayout->addLayout(Vl1);
 
     QLabel *nomeLabel = new QLabel(this);
-    nomeLabel->setText("Codice fiscale");
+    nomeLabel->setText("Nome");
     QLabel *cognomeLabel = new QLabel(this);
-    cognomeLabel->setText("Codice fiscale");
+    cognomeLabel->setText("Cognome");
     QLabel *codLabel = new QLabel(this);
     codLabel->setText("Codice fiscale");
     QLabel *phoneLabel = new QLabel(this);
@@ -115,4 +115,13 @@ void RegistrationWindow::onRegisterButtonClicked()
 
     QMessageBox::information(this, "Registrazione completata", "Registrazione avvenuta con successo!");
     close();
+}
+
+void RegistrationWindow::closeEvent(QCloseEvent *event){
+    if(QMessageBox::question(this,"Uscita","Vuoi uscire davvero?",QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes){
+        event->accept();
+        emit viewClosed();
+    }
+    else
+        event->ignore();
 }

@@ -30,6 +30,7 @@ protected:
 
 public:
     explicit RegistrationWindow(const QSize& s, View *parent = nullptr);
+    void closeEvent(QCloseEvent *event) override;
 
 public slots:
     void onRegisterButtonClicked();
