@@ -11,10 +11,10 @@ MenuWindow::MenuWindow(const QSize & s, View * parent) : View(s,parent) {
     layout->addWidget(benvenuto);
     layout->addStretch();
     HLayout = new QHBoxLayout(this);
-    viewAuleButton= new QPushButton("Visualizza \n Aule", this);
+    viewAuleButton= new QPushButton("Visualizza \nAule", this);
     HLayout->addWidget(viewAuleButton);
     HLayout->addStretch();
-    viewPrenButton= new QPushButton("Visualizza \n Prenotazioni", this);
+    viewPrenButton= new QPushButton("Visualizza \nPrenotazioni", this);
     HLayout->addWidget(viewPrenButton);
 
     layout->addLayout(HLayout);

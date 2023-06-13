@@ -56,6 +56,8 @@ LoginWindow::LoginWindow(const QSize& s, View* parent) : View(s, parent) {
     registerLabel->setOpenExternalLinks(true);
     layout->addWidget(registerLabel);
 
+    connect(registerLabel,SIGNAL(clicked(bool)),this,SIGNAL(Label_signal()));
+
     setLayout(layout) ;
 }
 
@@ -67,7 +69,7 @@ void LoginWindow::onLoginButtonClicked(){
     if(email.isEmpty() || password.isEmpty()){
         static_cast<View*>(this)->showError("Inserimento errato", "Il valore inserito non è permesso");
     } else {
-        //emit Login_valido(email, password);
+        emit Login_signal(email, password);
     }
 }
 
