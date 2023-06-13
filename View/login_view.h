@@ -37,7 +37,8 @@ public:
 
 public slots:
     void onLoginButtonClicked();
-
+signals:
+    void Login_enter() const;
 };
 
 #endif // LOGIN_VIEW_H

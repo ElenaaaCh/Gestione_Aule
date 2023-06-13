@@ -11,6 +11,9 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Controller/controller.cpp \
+    Controller/login_controller.cpp \
+    Controller/menu_controller.cpp \
     Model/aula.cpp \
     Model/aulaConcerto.cpp \
     Model/aulaStrumentale.cpp \
@@ -25,6 +28,9 @@ SOURCES += \
     main.cpp \
 
 HEADERS += \
+    Controller/controller.h \
+    Controller/login_controller.h \
+    Controller/menu_controller.h \
     Model/aula.h \
     Model/aulaConcerto.h \
     Model/aulaStrumentale.h \

@@ -27,9 +27,9 @@ public:
     explicit MenuWindow(const QSize&, View*);
     void closeEvent(QCloseEvent *event) override;
 
-public slots: //forse non servono, in quanto basta un segnale!!!
-    void onViewAuleButtonClicked();
-    void onViewPrenButtonClicked();
+signals:
+    void View_aule_signal() const;
+    void View_pren_signal() const;
 };
 
 #endif // MENU_VIEW_H
