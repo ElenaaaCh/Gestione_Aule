@@ -7,35 +7,25 @@
 
 AdminWindow::AdminWindow(const QSize& s, View* parent) : View(s, parent)
 {
+    QHBoxLayout* hbox = new QHBoxLayout();
+    hbox->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
     QVBoxLayout* vbox = new QVBoxLayout(this);
     vbox->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    QHBoxLayout* hbox = new QHBoxLayout();
-    hbox->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    vbox->addLayout(hbox);
-
     QLabel* titolo = new QLabel("ADMIN", this);
-    hbox->addWidget(titolo);
+    vbox->addWidget(titolo);
+    vbox->addStretch();
 
-    hbox->addStretch();
-
-    previous_page = new QPushButton(QIcon(QPixmap("Images/previous.svg")), "");
-    previous_page->setEnabled(false);
-    hbox->addWidget(previous_page);
-
-    next_page = new QPushButton(QIcon(QPixmap("Images/previous.svg")), "");
-    next_page->setEnabled(false);
-    hbox->addWidget(next_page);
-
-    QVBoxLayout* sinistra = new QVBoxLayout();
     QPushButton* new_aulaConcerti = new QPushButton ("Nuova aula concerto", this);
     QPushButton* new_aulaStrumentale = new QPushButton ("Nuova aula strumentale", this);
     QPushButton* new_aulaStudio = new QPushButton ("Nuova aula studio", this);
-    sinistra->addWidget(new_aulaConcerti);
-    sinistra->addWidget(new_aulaStrumentale);
-    sinistra->addWidget(new_aulaStudio);
-    vbox->addLayout(sinistra);
+    vbox->addWidget(new_aulaConcerti);
+    vbox->addWidget(new_aulaStrumentale);
+    vbox->addWidget(new_aulaStudio);
+    hbox->addLayout(vbox);
 
+    //non so esattamente a cosa serva
     grid = new QGridLayout();
     grid->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
     QWidget* container = new QWidget();
@@ -45,16 +35,14 @@ AdminWindow::AdminWindow(const QSize& s, View* parent) : View(s, parent)
     scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scroll_area->setWidgetResizable(true);
     scroll_area->setWidget(container);
-    vbox->addWidget(scroll_area);
+    hbox->addWidget(scroll_area);
 
-
-    // Connects signals
-    connect(previous_page, &QPushButton::clicked, this, &ResultsWidget::previousPage);
-    connect(next_page, &QPushButton::clicked, this, &ResultsWidget::nextPage);
+ //l'idea è quella di inserire nella scroll_area le varie aule tramite un for...per visualizzarle tutte
 
 }
 
-void ResultsWidget::showResults(Engine::Query query, Engine::ResultSet results) {
+//MI SERVE SOLO COME SPUNTO!!!
+/*void ResultsWidget::showResults(Engine::Query query, Engine::ResultSet results) {
     // Clears previous data
     while (!lookup.isEmpty()) {
         WidgetLookup info = lookup.takeLast();
@@ -86,3 +74,4 @@ void ResultsWidget::showResults(Engine::Query query, Engine::ResultSet results) 
         }
     }
 }
+*/

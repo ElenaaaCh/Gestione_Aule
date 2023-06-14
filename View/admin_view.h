@@ -19,8 +19,6 @@ public:
 
 signals:
     void refreshResults();
-    void previousPage();
-    void nextPage();
     void showAula(const abstractAula_item* aula);
     void editAula(const abstractAula_item* aula);
     void deleteAula(const abstractAula_item* aula);
