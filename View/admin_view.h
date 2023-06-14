@@ -2,34 +2,28 @@
 #define ADMIN_VIEW_H
 
 #include "view.h"
+#include "Item/abstact_aula.h"
+#include <QGridLayout>
 
-class ResultsWidget: public View {
+class AdminWindow: public View {
     Q_OBJECT
 private:
-    QLabel* results_total;
     QPushButton* previous_page;
     QPushButton* next_page;
-    QVector<WidgetLookup> lookup;
+    //QVector<WidgetLookup> lookup;
     QGridLayout* grid;
-    ResultRenderer::IResultRendererStrategy* renderer;
+    //ResultRenderer::IResultRendererStrategy* renderer;
 
 public:
-    explicit ResultsWidget(QWidget* parent = 0);
+    explicit AdminWindow(const QSize& s, View *parent = nullptr);
 
 signals:
     void refreshResults();
     void previousPage();
     void nextPage();
-    void showItem(const Item::AbstractItem* item);
-    void editItem(const Item::AbstractItem* item);
-    void deleteItem(const Item::AbstractItem* item);
-
-public slots:
-    void showResults(Engine::Query query, Engine::ResultSet results);
-    void setListRenderer();
-    void setGridRenderer();
+    void showAula(const abstractAula_item* aula);
+    void editAula(const abstractAula_item* aula);
+    void deleteAula(const abstractAula_item* aula);
 };
-
-}
 
 #endif // ADMIN_VIEW_H

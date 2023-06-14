@@ -6,9 +6,6 @@
 
 #include "../../Model/aula.h"
 
-namespace View {
-namespace ItemEditor {
-
 class abstractAula_item: public QWidget {
     Q_OBJECT
 public:
@@ -21,8 +18,5 @@ public:
         int _max_persone=0
         ) const = 0;
 };
-
-}
-}
 
 #endif // ABSTACT_AULA_H

@@ -3,8 +3,7 @@
 
 #include "abstact_aula.h"
 
-namespace Item {
-class aulaConcerto_item : public View::ItemEditor::abstractAula_item{
+class aulaConcerto_item : public abstractAula_item{
 private:
     unsigned int availability;
     double price;
@@ -12,6 +11,6 @@ private:
 public:
     aulaConcerto_item();//inserire i parametri del costruttore tutti
 };
-}
+
 
 #endif // AULACONCERTO_ITEM_H

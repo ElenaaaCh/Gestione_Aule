@@ -5,11 +5,7 @@
 #include <QLabel>
 #include <QPushButton>
 
-#include "Result/List.h"
-#include "Result/Grid.h"
-
-AdminWindow::AdminWindow(QWidget* parent)
-    : QWidget(parent)
+AdminWindow::AdminWindow(const QSize& s, View* parent) : View(s, parent)
 {
     QVBoxLayout* vbox = new QVBoxLayout(this);
     vbox->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -18,26 +14,27 @@ AdminWindow::AdminWindow(QWidget* parent)
     hbox->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     vbox->addLayout(hbox);
 
-    results_total = new QLabel();
-    hbox->addWidget(results_total);
+    QLabel* titolo = new QLabel("ADMIN", this);
+    hbox->addWidget(titolo);
 
     hbox->addStretch();
 
-    previous_page = new QPushButton(QIcon(QPixmap(":/assets/icons/previous.svg")), "");
+    previous_page = new QPushButton(QIcon(QPixmap("Images/previous.svg")), "");
     previous_page->setEnabled(false);
     hbox->addWidget(previous_page);
 
-    next_page = new QPushButton(QIcon(QPixmap(":/assets/icons/next.svg")), "");
+    next_page = new QPushButton(QIcon(QPixmap("Images/previous.svg")), "");
     next_page->setEnabled(false);
     hbox->addWidget(next_page);
 
-    hbox->addStretch();
-
-    QPushButton* list_layout = new QPushButton(QIcon(QPixmap(":/assets/icons/list.svg")), "");
-    hbox->addWidget(list_layout);
-
-    QPushButton* grid_layout = new QPushButton(QIcon(QPixmap(":/assets/icons/grid.svg")), "");
-    hbox->addWidget(grid_layout);
+    QVBoxLayout* sinistra = new QVBoxLayout();
+    QPushButton* new_aulaConcerti = new QPushButton ("Nuova aula concerto", this);
+    QPushButton* new_aulaStrumentale = new QPushButton ("Nuova aula strumentale", this);
+    QPushButton* new_aulaStudio = new QPushButton ("Nuova aula studio", this);
+    sinistra->addWidget(new_aulaConcerti);
+    sinistra->addWidget(new_aulaStrumentale);
+    sinistra->addWidget(new_aulaStudio);
+    vbox->addLayout(sinistra);
 
     grid = new QGridLayout();
     grid->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
@@ -50,13 +47,10 @@ AdminWindow::AdminWindow(QWidget* parent)
     scroll_area->setWidget(container);
     vbox->addWidget(scroll_area);
 
-    renderer = new ResultRenderer::List();
 
     // Connects signals
     connect(previous_page, &QPushButton::clicked, this, &ResultsWidget::previousPage);
     connect(next_page, &QPushButton::clicked, this, &ResultsWidget::nextPage);
-    connect(list_layout, &QPushButton::clicked, this, &ResultsWidget::setListRenderer);
-    connect(grid_layout, &QPushButton::clicked, this, &ResultsWidget::setGridRenderer);
 
 }
 
@@ -84,9 +78,6 @@ void ResultsWidget::showResults(Engine::Query query, Engine::ResultSet results) 
         it != lookup.end();
         it++
         ) {
-        if (it->getViewButton()) {
-            connect(it->getViewButton(), &QPushButton::clicked, std::bind(&ResultsWidget::showItem, this, it->getItem()));
-        }
         if (it->getEditButton()) {
             connect(it->getEditButton(), &QPushButton::clicked, std::bind(&ResultsWidget::editItem, this, it->getItem()));
         }
@@ -95,17 +86,3 @@ void ResultsWidget::showResults(Engine::Query query, Engine::ResultSet results) 
         }
     }
 }
-
-void ResultsWidget::setListRenderer() {
-    delete renderer;
-    ResultRenderer::List* list = new ResultRenderer::List();
-    renderer = list;
-    emit refreshResults();
-}
-
-void ResultsWidget::setGridRenderer() {
-    delete renderer;
-    renderer = new ResultRenderer::Grid(3);
-    emit refreshResults();
-}
-
