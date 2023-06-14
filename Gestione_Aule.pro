@@ -22,7 +22,9 @@ SOURCES += \
     Model/prenotazione.cpp \
     Model/storage.cpp \
     Model/utente.cpp \
-    View/calendario_view.cpp \
+    View/Item/abstract_aula.cpp \
+    View/Item/aulaconcerto_item.cpp \
+    View/admin_view.cpp \
     View/login_view.cpp \
     View/menu_view.cpp \
     View/registrazione_view.cpp \
@@ -42,8 +44,9 @@ HEADERS += \
     Model/prenotazione.h \
     Model/storage.h \
     Model/utente.h \
-    View/aule_view.h \
-    View/calendario_view.h \
+    View/Item/abstact_aula.h \
+    View/Item/aulaconcerto_item.h \
+    View/admin_view.h \
     View/login_view.h \
     View/menu_view.h \
     View/registrazione_view.h \
