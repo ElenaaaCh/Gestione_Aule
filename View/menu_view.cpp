@@ -6,9 +6,11 @@ MenuWindow::MenuWindow(const QSize & s, View * parent) : View(s,parent) {
 
     //logo
 
-    benvenuto = new QLabel("Benvenuto" /*+ getNome() + " "+ getCognome() */, this);
+    benvenuto = new QLabel("Benvenuto!", this);
     benvenuto->setAlignment(Qt::AlignCenter);
     layout->addWidget(benvenuto);
+    QLabel* ut = new QLabel ("Accesso effettuato come ...", this);
+    layout->addWidget(ut);
     layout->addStretch();
     HLayout = new QHBoxLayout(this);
     viewAuleButton= new QPushButton("Visualizza \nAule", this);

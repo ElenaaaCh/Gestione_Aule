@@ -9,7 +9,7 @@ class MenuController : public Controller {
 protected:
     MenuController();
 public:
-    MenuController(MenuWindow*m, Controller* = nullptr);
+    MenuController(MenuWindow*, Controller* = nullptr);
     void AulaView() const;
     void PrenView() const;
 };
