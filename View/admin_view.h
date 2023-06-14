@@ -18,10 +18,13 @@ public:
     explicit AdminWindow(const QSize& s, View *parent = nullptr);
 
 signals:
-    void refreshResults();
+    void aggiornaPagina_signal();
+    void addAConcerto_signal();
+    void addAStrumentale_signal();
+    void addAStudio_signal();
     void showAula(const abstractAula_item* aula);
-    void editAula(const abstractAula_item* aula);
-    void deleteAula(const abstractAula_item* aula);
+    void modificaAula_signal(const abstractAula_item* aula);
+    void eliminaAula_signal(const abstractAula_item* aula);
 };
 
 #endif // ADMIN_VIEW_H

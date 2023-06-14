@@ -5,7 +5,7 @@ LoginWindow::LoginWindow(const QSize& s, View* parent) : View(s, parent) {
     layout = new QVBoxLayout(this);
 
     // Aggiungi il logo
-    QPixmap logo(":/Images/logo_consvi.jpeg");
+    QPixmap logo(":/Images/logo_consvi.svg");
     logoLabel=new QLabel(this);
     logoLabel->setPixmap(logo.scaledToHeight(256));
     logoLabel->setAlignment(Qt::AlignHCenter);
@@ -44,7 +44,7 @@ LoginWindow::LoginWindow(const QSize& s, View* parent) : View(s, parent) {
     loginButton = new QPushButton("Login", this);
     layout->addWidget(loginButton);
 
-    // Connessione del pulsante di login al slot onLoginButtonClicked()
+    // Connessione del pulsante di login allo slot onLoginButtonClicked()
     connect(loginButton,SIGNAL(clicked(bool)),this,SLOT(onLoginButtonClicked()));
 
     // Aggiungi link per la registrazione

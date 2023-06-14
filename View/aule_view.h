@@ -13,6 +13,9 @@ private:
 public:
     explicit aule_view(const QSize& s, View* parent);
     void closeEvent(QCloseEvent *event) override;
+signals:
+    void indietro_signal() const;
+    void visualizzaPren_signal() const; //come parametro forse serve il numero dell'aula
 };
 
 #endif // AULE_VIEW_H
