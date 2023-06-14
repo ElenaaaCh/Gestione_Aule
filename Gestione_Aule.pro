@@ -25,6 +25,7 @@ SOURCES += \
     View/Item/abstract_aula.cpp \
     View/Item/aulaconcerto_item.cpp \
     View/admin_view.cpp \
+    View/aule_view.cpp \
     View/login_view.cpp \
     View/menu_view.cpp \
     View/registrazione_view.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
     View/Item/abstact_aula.h \
     View/Item/aulaconcerto_item.h \
     View/admin_view.h \
+    View/aule_view.h \
     View/login_view.h \
     View/menu_view.h \
     View/registrazione_view.h \
@@ -59,5 +61,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    Images/logo_consvi.jpeg \
+    Images/logo_consvi.svg \
     View/Images/logo_consvi.jpeg
 

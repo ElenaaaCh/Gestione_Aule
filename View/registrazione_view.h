@@ -34,7 +34,6 @@ public:
 
 public slots:
     void onRegisterButtonClicked();
-
 };
 
 #endif // REGISTRAZIONE_VIEW_H

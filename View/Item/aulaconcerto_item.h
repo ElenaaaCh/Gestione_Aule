@@ -5,8 +5,8 @@
 
 class aulaConcerto_item : public abstractAula_item{
 private:
-    unsigned int availability;
-    double price;
+    //unsigned int availability;
+    //double price;
     //inserire solo gli elementi "in più" rispetto ad aula_abstract
 public:
     aulaConcerto_item();//inserire i parametri del costruttore tutti

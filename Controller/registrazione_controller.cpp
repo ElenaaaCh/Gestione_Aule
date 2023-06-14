@@ -6,8 +6,10 @@ RegController::RegController(RegistrationWindow * r, Controller* c) : Controller
 
 void RegController::Registr_enter(QString _nome, QString _cogn) const {
 
-    //deve inserire gli argomenti passati nel vettore<utenti> pers in storage
+    //CLICCANDO SU REGISTRA deve inserire gli argomenti passati nel vettore<utenti> pers in storage
+    // + controllare che la mail non sia già presente (utente già esistente)
 
+    // e aprire la scheda di login
     LoginWindow* logW =new LoginWindow();
     logW->show();
     hide();

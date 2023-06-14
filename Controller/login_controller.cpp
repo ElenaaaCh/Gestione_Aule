@@ -10,6 +10,7 @@ void LoginController::Login_enter(QString em, QString pass) const {
         if(it->getEmail==em){ //trova corrispondenza email nello storage
             find=0;
             if(it->getPassword==pass){ //controllo correttezza password
+                //MANCA IL CONTROLLO SUL UTENTE VS ADMIN PER LA VISUALIZZAZIONE DELLA RELATIVA SCHEDA
                 MenuWindow* menuW = new MenuWindow;
                 menuW->show();
                 MenuController* menuC = new MenuController();

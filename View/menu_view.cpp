@@ -5,6 +5,11 @@ MenuWindow::MenuWindow(const QSize & s, View * parent) : View(s,parent) {
     layout = new QVBoxLayout(this);
 
     //logo
+    QPixmap logo(":/Images/logo_consvi.svg");
+    logoLabel=new QLabel(this);
+    logoLabel->setPixmap(logo.scaledToHeight(256));
+    logoLabel->setAlignment(Qt::AlignHCenter);
+    layout->addWidget(logoLabel);
 
     benvenuto = new QLabel("Benvenuto!", this);
     benvenuto->setAlignment(Qt::AlignCenter);
