@@ -43,7 +43,7 @@ AdminWindow::AdminWindow(const QSize& s, View* parent) : View(s, parent)
 }
 
 void AdminWindow::visualizza_aule(contenitore<aula*>& ) const{
-
+    foreach()
 }
 
 //MI SERVE SOLO COME SPUNTO!!!
