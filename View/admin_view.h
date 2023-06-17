@@ -2,20 +2,21 @@
 #define ADMIN_VIEW_H
 
 #include "view.h"
+#include "Model/contenitore.h"
 #include "Item/abstact_aula.h"
-#include <QGridLayout>
+#include <QTableWidget>
 
 class AdminWindow: public View {
     Q_OBJECT
 private:
-    QPushButton* previous_page;
-    QPushButton* next_page;
+
     //QVector<WidgetLookup> lookup;
-    QGridLayout* grid;
+    QTableWidget* tabella;
     //ResultRenderer::IResultRendererStrategy* renderer;
 
 public:
     explicit AdminWindow(const QSize& s, View *parent = nullptr);
+    void visualizza_aule(contenitore<aula*>& ) const;
 
 signals:
     void aggiornaPagina_signal();

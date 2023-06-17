@@ -25,17 +25,7 @@ AdminWindow::AdminWindow(const QSize& s, View* parent) : View(s, parent)
     vbox->addWidget(new_aulaStudio);
     hbox->addLayout(vbox);
 
-    //non so esattamente a cosa serva
-    grid = new QGridLayout();
-    grid->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
-    QWidget* container = new QWidget();
-    container->setLayout(grid);
-    QScrollArea* scroll_area = new QScrollArea();
-    scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scroll_area->setWidgetResizable(true);
-    scroll_area->setWidget(container);
-    hbox->addWidget(scroll_area);
+    //ora devo creare un QTable al cui interno avere 2 colonne, la prima contiene i vari oggetti Aula, la seconda contiene i pulsanti modify e delete
 
     //connessione ai segnali
     connect(new_aulaConcerto,SIGNAL(clicked(bool)),this,SIGNAL(addAConcerto_signal()));
@@ -49,6 +39,10 @@ AdminWindow::AdminWindow(const QSize& s, View* parent) : View(s, parent)
     // vicino ad ogni aula devono esserci 2 pulsanti: "MODIFICA" ed "ELIMINA"
 
     //MODIFICA porta a scheda_modifica.h mentre ELIMINA deve eliminare l'aula dallo storage
+
+}
+
+void AdminWindow::visualizza_aule(contenitore<aula*>& ) const{
 
 }
 

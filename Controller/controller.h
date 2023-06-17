@@ -17,8 +17,8 @@ protected:
 public:
     Controller (model*, View*, Controller* = nullptr); //costr
     virtual ~Controller();
-    virtual const model* getModel() const=0;
-    virtual const View* getView() const=0;
+    virtual  model* getModel() const=0;
+    virtual  View* getView() const=0;
     void show() const;
     void hide() const;
 

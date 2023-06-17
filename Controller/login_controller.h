@@ -17,8 +17,8 @@ public:
 public slots:
     void Login_enter(const string& em, const string& pass) const;
     void Label_enter() const;
-    const storage* getModel() const override;
-    const LoginWindow* getView() const override;
+    storage* getModel() const override;
+    LoginWindow* getView() const override;
     void onViewClosed() const override;
 };
 
