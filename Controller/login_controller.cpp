@@ -1,19 +1,26 @@
 #include "login_controller.h"
 
-LoginController::LoginController(LoginWindow * l, Controller* c) : Controller(l, c){
+LoginController::LoginController(storage* s, LoginWindow * l, Controller* c) : Controller(s, l, c){
     connect(view,SIGNAL(Login_signal(em, pass)),this,SLOT(Login_enter(em, pass)));
 }
+const storage* LoginController::getModel()const {
+    return mod;
+}
 
-void LoginController::Login_enter(QString em, QString pass) const {
+const LoginWindow* LoginController::getView() const{
+    return view;
+}
+
+void LoginController::Login_enter(const string& em, const string& pass) const {
     bool find=1;
-    foreach(auto it: pers){
-        if(it->getEmail==em){ //trova corrispondenza email nello storage
+    for(auto it: getModel()->getUtente()){
+        if(it->getEmail()==em){ //trova corrispondenza email nello storage
             find=0;
-            if(it->getPassword==pass){ //controllo correttezza password
+            if(it->getPassword()==pass){ //controllo correttezza password
                 //MANCA IL CONTROLLO SUL UTENTE VS ADMIN PER LA VISUALIZZAZIONE DELLA RELATIVA SCHEDA
-                MenuWindow* menuW = new MenuWindow;
+                MenuWindow* menuW = new MenuWindow(QSize(300,400), view);
                 menuW->show();
-                MenuController* menuC = new MenuController();
+                MenuController* menuC = new MenuController(mod,menuW, const_cast<Controller*>(this));
                 menuC->show();
                 hide();
             }

@@ -1,5 +1,16 @@
 #include "storage.h"
 
+
+const contenitore<aula*>& storage::getContAula() const{
+    return aule;
+}
+const contenitore<prenotazione*>& storage::getContPren() const{
+    return prenotazioni;
+}
+const vector<utente*>& storage::getUtente() const{
+    return pers;
+}
+
 storage::storage(contenitore<aula*>& aule_iniziali, contenitore<prenotazione*>& prenotazioni_iniziali, vector<utente*>& utenti_iniziali) {
     // Aggiungi le aule iniziali al contenitore delle aule
     for (auto aula : aule_iniziali) {

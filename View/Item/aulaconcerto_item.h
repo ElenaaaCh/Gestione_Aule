@@ -6,8 +6,10 @@
 
 class aulaConcerto_item : public abstractAula_item{
 private:
-    //unsigned int availability;
-    //double price;
+    string nome_aula;
+    string strumento;
+    int capienza;
+    bool amplificazione; //0=false, 1=true
     //inserire solo gli elementi "in più" rispetto ad aula_abstract
     QHBoxLayout* hbox;
 public:

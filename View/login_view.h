@@ -39,7 +39,8 @@ public slots:
     void onLoginButtonClicked();
 
 signals:
-    void Login_signal(QString e, QString p) const; //è corretto o vanno come puntatori??
+    void ButtonClicked() const;
+    void Login_signal(const QString& e, const QString& p) const; //è corretto o vanno come puntatori??
     void Label_signal() const;
 };
 

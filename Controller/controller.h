@@ -3,23 +3,28 @@
 
 #include <QObject>
 #include <QMessageBox>
+#include <QDebug>
+#include "Model/model.h"
 #include "View/view.h"
 
 class Controller : public QObject {
     Q_OBJECT
 
 protected:
+    model* mod;
     View* view;
-    Controller();
+    explicit Controller(); //costr
 public:
-    Controller (View*, Controller* = nullptr);
+    Controller (model*, View*, Controller* = nullptr); //costr
     virtual ~Controller();
+    virtual const model* getModel() const=0;
+    virtual const View* getView() const=0;
     void show() const;
     void hide() const;
 
 public slots:
     virtual void onViewClosed() const=0 ;
-    virtual void onBack() const;
+    //virtual void onBack() const;
 };
 
 #endif // CONTROLLER_H

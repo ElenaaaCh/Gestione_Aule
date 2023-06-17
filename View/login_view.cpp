@@ -45,7 +45,8 @@ LoginWindow::LoginWindow(const QSize& s, View* parent) : View(s, parent) {
     layout->addWidget(loginButton);
 
     // Connessione del pulsante di login allo slot onLoginButtonClicked()
-    connect(loginButton,SIGNAL(clicked(bool)),this,SLOT(onLoginButtonClicked()));
+    connect(loginButton,SIGNAL(clicked(bool)),this,SIGNAL(ButtonClicked()));
+    connect(this,SIGNAL(ButtonClicked()),this,SLOT(onLoginButtonClicked()));
 
     // Aggiungi link per la registrazione
     registerLabel = new QLabel(this);

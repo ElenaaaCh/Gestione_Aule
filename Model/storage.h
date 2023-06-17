@@ -8,10 +8,12 @@
 #include "aula.h"
 #include "prenotazione.h"
 #include "utente.h"
+#include "model.h"
+
 using std::vector;
 
 
-class storage{
+class storage: public model{
 private:
     contenitore<aula*> aule;
     contenitore<prenotazione*> prenotazioni;
@@ -19,6 +21,11 @@ private:
 public:
     storage(contenitore<aula*>& , contenitore<prenotazione*>& , vector<utente*>& );//costr
     virtual ~storage();//distr
+
+    const contenitore<aula*>& getContAula() const;
+    const contenitore<prenotazione*>& getContPren() const;
+    const vector<utente*>& getUtente() const;
+
     void addAula(aula* aula);
     void removeAula(aula* aula);
     aula* searchAula(const int piano, const int numero);

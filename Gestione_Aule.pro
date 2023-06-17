@@ -19,11 +19,13 @@ SOURCES += \
     Model/aulaConcerto.cpp \
     Model/aulaStrumentale.cpp \
     Model/aulaStudio.cpp \
+    Model/model.cpp \
     Model/prenotazione.cpp \
     Model/storage.cpp \
     Model/utente.cpp \
     View/Item/abstract_aula.cpp \
     View/Item/aulaconcerto_item.cpp \
+    View/Item/aulastudio_item.cpp \
     View/admin_view.cpp \
     View/aule_view.cpp \
     View/login_view.cpp \
@@ -42,11 +44,13 @@ HEADERS += \
     Model/aulaStrumentale.h \
     Model/aulaStudio.h \
     Model/contenitore.h \
+    Model/model.h \
     Model/prenotazione.h \
     Model/storage.h \
     Model/utente.h \
     View/Item/abstact_aula.h \
     View/Item/aulaconcerto_item.h \
+    View/Item/aulastudio_item.h \
     View/admin_view.h \
     View/aule_view.h \
     View/login_view.h \
